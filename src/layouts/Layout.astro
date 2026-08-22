@@ -1,0 +1,31 @@
+---
+import '../styles/global.css';
+import { ViewTransitions } from 'astro:transitions';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = '' } = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{title}</title>
+  {description && <meta name="description" content={description} />}
+  <meta property="og:title" content={title} />
+  {description && <meta property="og:description" content={description} />}
+  <meta property="og:image" content="/og-default.png" />
+  <!-- Solo aporta valor si el sitio tiene mas de una pagina (pricing, privacidad, etc).
+       En un one-pager puro, puedes quitarla sin perder nada. -->
+  <ViewTransitions />
+</head>
+<body class="bg-background text-text font-body">
+  <slot />
+</body>
+</html>

@@ -1,45 +1,45 @@
 {
-  "_readme": "Este archivo es el unico punto de personalizacion de herramientas. Las skills lo leen antes de recomendar sintaxis o comandos. Cambia 'tool' por lo que uses; deja 'TBD' si aun no decides.",
+  "_readme": "Stack definitivo de la operacion. Los valores TBD ya se resolvieron; edita solo si un proyecto puntual pide algo distinto. Las skills siguen leyendo este archivo antes de escribir codigo o recomendar comandos.",
   "roles": {
     "component_library": {
       "role_description": "Fuente de componentes UI ya montados (botones, cards, navs, etc.)",
-      "tool": "TBD",
-      "examples": ["21st.dev", "shadcn/ui", "Material UI", "componentes propios en Figma"]
+      "tool": "21st.dev (shadcn/ui)",
+      "notes": "Instalar como islas React via CLI de 21st.dev / shadcn. No convertir toda la pagina en React: solo los componentes que lo necesiten."
     },
     "design_reference": {
       "role_description": "Herramienta de mockup / wireframe, idealmente conectada por MCP",
-      "tool": "TBD",
-      "examples": ["Figma", "Excalidraw", "papel + boceto"]
+      "tool": "Figma",
+      "notes": "Conectado via MCP en .mcp.json. Usar para aprobacion visual con cliente antes de codear."
     },
     "image_generation": {
       "role_description": "Generacion o edicion de imagenes, ilustraciones, hero graphics",
-      "tool": "TBD",
-      "examples": ["Midjourney", "Ideogram", "Photoshop", "banco de fotos con licencia"]
+      "tool": "Midjourney / Ideogram (ilustracion) + fotografia real del cliente (producto)",
+      "notes": "Nunca generar imagenes de producto por IA si el cliente ya tiene fotografia real disponible."
     },
     "video_generation": {
       "role_description": "Generacion de video, b-roll, loops de fondo, demos de producto",
-      "tool": "TBD",
-      "examples": ["Higgsfield", "Runway", "Kling", "grabacion real editada"]
+      "tool": "Higgsfield",
+      "notes": "Usar cuando el cliente no tiene footage propio. Si lo tiene, editar el material real en vez de generar."
     },
     "animation_scroll": {
       "role_description": "Animacion orquestada ligada al scroll, timelines complejos, morphing SVG",
-      "tool": "TBD",
-      "examples": ["GSAP + ScrollTrigger", "Motion (scroll-linked)", "CSS scroll-timeline nativo"]
+      "tool": "GSAP + ScrollTrigger",
+      "notes": "Motor del storytelling de scroll. Se carga directo, sin depender de las islas React."
     },
     "animation_component": {
       "role_description": "Micro-interacciones a nivel de componente: hover, entrada/salida, gestos",
-      "tool": "TBD",
-      "examples": ["Motion", "React Spring", "CSS transitions"]
+      "tool": "Motion",
+      "notes": "Solo dentro de islas React (client:visible / client:idle en Astro). No usar para el scroll global."
     },
     "framework": {
       "role_description": "Framework base del sitio",
-      "tool": "TBD",
-      "examples": ["Next.js", "Astro", "vanilla HTML/CSS/JS", "Webflow"]
+      "tool": "Astro + @astrojs/react + Tailwind CSS",
+      "notes": "Static-first, islands architecture, View Transitions nativas, Content Collections para copy."
     },
     "deployment": {
       "role_description": "Donde y como se publica el sitio",
-      "tool": "TBD",
-      "examples": ["Vercel", "Netlify", "Cloudflare Pages"]
+      "tool": "Vercel",
+      "notes": "Preview URL automatica por PR/branch para aprobacion del cliente antes de merge a produccion."
     }
   }
 }

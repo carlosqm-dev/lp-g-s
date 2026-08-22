@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/sections/Hero.astro';
+import Problem from '../components/sections/Problem.astro';
+import Solution from '../components/sections/Solution.astro';
+import HowItWorks from '../components/sections/HowItWorks.astro';
+import Proof from '../components/sections/Proof.astro';
+import Faq from '../components/sections/Faq.astro';
+import FinalCta from '../components/sections/FinalCta.astro';
+import Footer from '../components/sections/Footer.astro';
+
+// El orden aca ES el arco narrativo (fase 1-2 del proceso: brainstorming
+// + jerarquia visual). No lo reordenes sin volver a esas fases primero.
+---
+<Layout title="Reemplaza con el titulo del cliente" description="Reemplaza con la meta description">
+  <Hero />
+  <Problem />
+  <Solution />
+  <HowItWorks />
+  <Proof />
+  <Faq />
+  <FinalCta />
+  <Footer />
+
+  <script>
+    import '../animations/scroll-story.ts';
+  </script>
+</Layout>

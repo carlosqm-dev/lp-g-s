@@ -26,6 +26,15 @@ Antes de cualquier tarea de diseño o código:
    recrear a mano lo que ya resuelven (por ejemplo, un MCP de Figma para
    leer frames en vez de describir el diseño de memoria).
 
+## Entregable más común: landing page
+
+Si la tarea es una landing page de una sola página (el caso más
+frecuente), usa `.claude/skills/landing-page-storytelling` como punto de
+entrada — especializa las 7 fases genéricas en el arco narrativo, la
+estructura de carpetas y el stack ya montados en este repo (`src/`,
+`assets/`, `config/tools.config.json`). No repitas trabajo que esa skill
+ya resuelve.
+
 ## Fases del flujo (en orden)
 
 | # | Fase | Skill |

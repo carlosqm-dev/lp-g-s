@@ -1,0 +1,12 @@
+---
+import { getEntry } from 'astro:content';
+const { data } = await getEntry('landing', '05-proof');
+---
+<section id="prueba" class="gsap-section px-6 md:px-16 py-24 md:py-32" data-section="proof">
+  {data.eyebrow && <p class="text-sm uppercase tracking-wide text-secondary mb-4">{data.eyebrow}</p>}
+  <h2 class="font-heading text-3xl md:text-5xl max-w-2xl mb-12">{data.headline}</h2>
+  <!-- Logos: assets/images/social-proof/*.svg, mismo alto entre todos -->
+  <div class="flex flex-wrap items-center gap-8 opacity-70">
+    <!-- <img src="/images/social-proof/cliente-1.svg" alt="Cliente 1" class="h-8" /> -->
+  </div>
+</section>

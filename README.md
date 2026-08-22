@@ -90,3 +90,18 @@ git push -u origin main
 A partir de ahí, cada proyecto nuevo puede ser un fork o un clone de este
 repo, o puedes mantenerlo como plantilla ("template repository" en
 GitHub) y generar un repo nuevo desde ahí por cada sitio.
+
+## Levantar el proyecto Astro (stack ya scaffoldeado en este repo)
+
+```bash
+npm install
+npm run dev
+```
+
+`npm run dev` corre automático `tokens:sync` antes de arrancar (hook
+`predev` en `package.json`), así que `design-system/tokens.json` siempre
+queda reflejado en `src/styles/theme.css` sin pasos manuales.
+
+Para el flujo completo de una landing (el entregable más común), ver
+`.claude/skills/landing-page-storytelling/SKILL.md` — trae el checklist
+de arranque cliente por cliente.

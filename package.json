@@ -1,0 +1,27 @@
+{
+  "name": "landing-page-project",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "tokens:sync": "node scripts/generate-theme.mjs",
+    "predev": "npm run tokens:sync",
+    "prebuild": "npm run tokens:sync",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^7.2.4",
+    "@astrojs/react": "^6.0.4",
+    "@tailwindcss/vite": "^4.3.3",
+    "tailwindcss": "^4.3.3",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "gsap": "^3.15.0",
+    "motion": "^13.1.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4"
+  }
+}
