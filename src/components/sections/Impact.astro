@@ -1,0 +1,36 @@
+---
+import { getEntry } from 'astro:content';
+import { impactCards, impactHighlight } from '../../data/impact';
+
+const { data } = await getEntry('landing', '06-impact');
+---
+<section id="impacto" class="gsap-section bg-primary px-6 py-20 text-background md:px-16 md:py-24" data-section="impact">
+  <div class="mx-auto max-w-6xl">
+    <h2 class="font-heading text-3xl text-background md:text-4xl">{data.headline}</h2>
+    {data.subheadline && <p class="mt-4 max-w-[65ch] text-background/80">{data.subheadline}</p>}
+
+    <p class="mt-10 rounded-lg border border-background/20 bg-background/5 p-6 font-heading text-xl font-semibold leading-snug md:text-2xl">
+      {impactHighlight.before}<span class="text-accent">{impactHighlight.accent1}</span>{impactHighlight.middle}<span class="text-accent">{impactHighlight.accent2}</span>{impactHighlight.after}
+      <span class="ml-2 inline-block rounded bg-[#fff3cd] px-1.5 py-0.5 align-middle text-[11px] font-body font-normal text-[#664d03]">
+        {impactHighlight.note}
+      </span>
+    </p>
+
+    <div class="mt-8 grid gap-6 md:grid-cols-2">
+      {impactCards.map((card) => (
+        <div class="rounded-lg border border-background/20 p-6">
+          <span
+            class={`mb-3 inline-block rounded px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide ${
+              card.tagVariant === 'confirmed' ? 'bg-accent text-primary' : 'border border-accent text-accent'
+            }`}
+          >
+            {card.tag}
+          </span>
+          <div class="font-heading text-3xl font-bold text-background">{card.number}</div>
+          <div class="mb-4 mt-2 text-sm text-background/80">{card.label}</div>
+          <div class="border-t border-background/20 pt-3 text-xs text-background/60">{card.method}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

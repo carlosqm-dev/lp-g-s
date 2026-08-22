@@ -1,11 +1,12 @@
 @theme {
-  --color-primary: TBD;
-  --color-secondary: TBD;
-  --color-accent: TBD;
-  --color-background: TBD;
-  --color-text: TBD;
-  --font-heading: TBD;
-  --font-body: TBD;
+  --color-primary: #002A41;
+  --color-secondary: #335567;
+  --color-accent: #94C23D;
+  --color-background: #FFFFFF;
+  --color-background-alt: #EBEEF0;
+  --color-text: #002A41;
+  --font-heading: Poppins, 'Helvetica Neue', Arial, sans-serif;
+  --font-body: Lato, 'Helvetica Neue', Arial, sans-serif;
   --spacing-0: 4px;
   --spacing-1: 8px;
   --spacing-2: 12px;

@@ -1,12 +1,25 @@
 ---
 import { getEntry } from 'astro:content';
-const { data } = await getEntry('landing', '07-final-cta');
+import { contact } from '../../data/contact';
+
+const { data } = await getEntry('landing', '09-final-cta');
 ---
-<section id="cta-final" class="gsap-section px-6 md:px-16 py-32 text-center" data-section="final-cta">
-  <h2 class="font-heading text-3xl md:text-5xl max-w-2xl mx-auto">{data.headline}</h2>
+<section id="contacto" class="gsap-section bg-primary px-6 py-24 text-center text-background md:px-16" data-section="final-cta">
+  <h2 class="mx-auto max-w-2xl font-heading text-3xl text-background md:text-4xl">{data.headline}</h2>
+  {data.subheadline && <p class="mt-4 text-background/80">{data.subheadline}</p>}
   {data.cta_label && (
-    <a href={data.cta_href} class="mt-10 inline-flex items-center rounded-md bg-primary px-8 py-4 text-lg text-background transition-base hover:opacity-90">
+    <a
+      href={contact.whatsappHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-8 inline-flex items-center gap-2 rounded-md border-2 border-background px-8 py-4 font-heading text-lg text-background transition-base hover:bg-background hover:text-primary"
+    >
       {data.cta_label}
+      {!contact.whatsappNumber && (
+        <span class="ml-1 inline-block rounded bg-[#fff3cd] px-1.5 py-0.5 align-middle text-[11px] font-body font-normal text-[#664d03]">
+          número a confirmar
+        </span>
+      )}
     </a>
   )}
 </section>

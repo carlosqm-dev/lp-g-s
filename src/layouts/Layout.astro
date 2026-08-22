@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
-import { ViewTransitions } from 'astro:transitions';
+import Preloader from '../components/layout/Preloader.astro';
+import Header from '../components/layout/Header.astro';
 
 interface Props {
   title: string;
@@ -15,17 +16,28 @@ const { title, description = '' } = Astro.props;
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <!-- Tipografia de marca (Poppins/Lato, ver design-system/tokens.json).
+       Galvji del manual de marca no tiene licencia web; Poppins fue la
+       alternativa aprobada por el cliente. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>
   {description && <meta name="description" content={description} />}
   <meta property="og:title" content={title} />
   {description && <meta property="og:description" content={description} />}
   <meta property="og:image" content="/og-default.png" />
-  <!-- Solo aporta valor si el sitio tiene mas de una pagina (pricing, privacidad, etc).
-       En un one-pager puro, puedes quitarla sin perder nada. -->
-  <ViewTransitions />
+  <!-- Astro View Transitions (ViewTransitions/ClientRouter) se omite a
+       proposito: aporta valor entre paginas distintas, y G&S es un
+       one-pager puro (un solo index.astro). -->
 </head>
 <body class="bg-background text-text font-body">
+  <Preloader />
+  <Header />
   <slot />
 </body>
 </html>

@@ -1,28 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/sections/Hero.astro';
-import Problem from '../components/sections/Problem.astro';
-import Solution from '../components/sections/Solution.astro';
+import Stats from '../components/sections/Stats.astro';
+import WhatWeDo from '../components/sections/WhatWeDo.astro';
+import Coverage from '../components/sections/Coverage.astro';
+import WhyUs from '../components/sections/WhyUs.astro';
+import Impact from '../components/sections/Impact.astro';
 import HowItWorks from '../components/sections/HowItWorks.astro';
-import Proof from '../components/sections/Proof.astro';
-import Faq from '../components/sections/Faq.astro';
+import History from '../components/sections/History.astro';
 import FinalCta from '../components/sections/FinalCta.astro';
 import Footer from '../components/sections/Footer.astro';
 
-// El orden aca ES el arco narrativo (fase 1-2 del proceso: brainstorming
-// + jerarquia visual). No lo reordenes sin volver a esas fases primero.
+// El orden aca ES el arco narrativo aprobado (design-system/brand.md,
+// mapa del sitio). No lo reordenes sin volver a esas fases primero.
 ---
-<Layout title="Reemplaza con el titulo del cliente" description="Reemplaza con la meta description">
+<Layout
+  title="G&S Conexiones Estratégicas — Transporte de carga en Antioquia"
+  description="Transporte de mercancía con más de 20 años de trayectoria familiar. Cobertura en Antioquia y a nivel nacional bajo requerimiento, con compromiso real con la economía circular del PET."
+>
   <Hero />
-  <Problem />
-  <Solution />
+  <Stats />
+  <WhatWeDo />
+  <Coverage />
+  <WhyUs />
+  <Impact />
   <HowItWorks />
-  <Proof />
-  <Faq />
+  <History />
   <FinalCta />
   <Footer />
 
   <script>
+    import '../animations/preloader.ts';
     import '../animations/scroll-story.ts';
   </script>
 </Layout>

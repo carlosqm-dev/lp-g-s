@@ -1,9 +1,0 @@
----
-import { getEntry } from 'astro:content';
-const { data } = await getEntry('landing', '02-problem');
----
-<section id="problema" class="gsap-section px-6 md:px-16 py-24 md:py-32" data-section="problem">
-  {data.eyebrow && <p class="text-sm uppercase tracking-wide text-secondary mb-4">{data.eyebrow}</p>}
-  <h2 class="font-heading text-3xl md:text-5xl max-w-2xl">{data.headline}</h2>
-  {data.subheadline && <p class="mt-4 text-lg text-secondary max-w-xl">{data.subheadline}</p>}
-</section>

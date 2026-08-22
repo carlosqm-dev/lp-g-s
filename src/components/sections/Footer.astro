@@ -1,6 +1,28 @@
 ---
 // Estatico: el footer no es parte del arco narrativo, no lleva animacion de scroll.
+import { contact } from '../../data/contact';
 ---
-<footer class="px-6 md:px-16 py-12 border-t border-secondary/20 text-sm text-secondary">
-  <p>&copy; {new Date().getFullYear()} — Reemplaza con el nombre del cliente</p>
+<footer class="border-t border-background-alt bg-[#001c2c] px-6 py-16 text-sm text-[#cdd8de] md:px-16">
+  <div class="mx-auto grid max-w-6xl gap-8 md:grid-cols-[1.2fr_1fr_1fr]">
+    <div>
+      <img src="/brand/logo-horizontal-white.png" alt="G&S Conexiones Estratégicas" class="h-8 w-auto" />
+      <p class="mt-4">Conectamos tu negocio, optimizamos tu camino.</p>
+    </div>
+    <div>
+      <h3 class="mb-3 font-heading text-sm text-white">Navegación</h3>
+      <a href="#que-hacemos" class="mb-2 block hover:text-white">Qué hacemos</a>
+      <a href="#historia" class="mb-2 block hover:text-white">Nuestra historia</a>
+      <a href="#contacto" class="mb-2 block hover:text-white">Contacto</a>
+    </div>
+    <div>
+      <h3 class="mb-3 font-heading text-sm text-white">Contacto</h3>
+      <a href={contact.whatsappHref} target="_blank" rel="noopener noreferrer" class="mb-2 block hover:text-white">
+        WhatsApp: {contact.whatsappNumber ?? 'número a confirmar'}
+      </a>
+      <span class="block">Antioquia, Colombia</span>
+    </div>
+  </div>
+  <div class="mx-auto mt-12 max-w-6xl border-t border-[#26445c] pt-6 text-center text-xs text-[#7f97a3]">
+    &copy; {new Date().getFullYear()} G&amp;S Conexiones Estratégicas. Todos los derechos reservados.
+  </div>
 </footer>

@@ -1,0 +1,48 @@
+---
+import { getEntry } from 'astro:content';
+import { milestones, foundersQuote } from '../../data/history';
+
+const { data } = await getEntry('landing', '08-history');
+---
+<section id="historia" class="gsap-section bg-background-alt px-6 py-20 md:px-16 md:py-24" data-section="history">
+  <div class="mx-auto max-w-6xl">
+    {data.eyebrow && <p class="text-xs font-bold uppercase tracking-wide text-secondary">{data.eyebrow}</p>}
+    <h2 class="mt-2 font-heading text-3xl md:text-4xl">{data.headline}</h2>
+    {data.subheadline && <p class="mt-3 text-secondary">{data.subheadline}</p>}
+
+    <div class="relative mt-12 flex flex-col gap-8 md:flex-row md:justify-between md:gap-5">
+      <div class="absolute left-[7px] right-[7px] top-[7px] hidden h-0.5 bg-accent md:block"></div>
+      {milestones.map((milestone) => (
+        <div class="relative flex-1">
+          <div class={`mb-3 h-3.5 w-3.5 rounded-full ${milestone.isCurrent ? 'bg-accent' : 'bg-primary'}`}></div>
+          <div class="text-xs font-bold uppercase tracking-wide text-secondary">
+            {milestone.eyebrow}
+            {!milestone.dateConfirmed && (
+              <span class="ml-1.5 inline-block rounded bg-[#fff3cd] px-1.5 py-0.5 align-middle text-[11px] font-body font-normal normal-case text-[#664d03]">
+                fecha a confirmar
+              </span>
+            )}
+          </div>
+          <p class="mt-2 pr-4 text-sm text-secondary">{milestone.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-16 text-center">
+      <p class="mx-auto max-w-[60ch] font-heading text-xl italic text-primary md:text-2xl">
+        "{foundersQuote.text}"
+      </p>
+      <span class="mt-3 block font-body text-sm font-bold not-italic text-secondary">
+        — {foundersQuote.attribution}
+        {!foundersQuote.confirmed && (
+          <span class="ml-1.5 inline-block rounded bg-[#fff3cd] px-1.5 py-0.5 align-middle text-[11px] font-normal text-[#664d03]">
+            cita a confirmar con el cliente
+          </span>
+        )}
+      </span>
+      <div class="mx-auto mt-6 flex min-h-[200px] max-w-xs items-center justify-center rounded-lg border border-dashed border-secondary/40 bg-background p-6 text-center text-xs text-secondary">
+        [Foto: Gentil y Santiago — ver assets/images/shot-list.md]
+      </div>
+    </div>
+  </div>
+</section>

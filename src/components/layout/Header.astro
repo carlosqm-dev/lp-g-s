@@ -1,0 +1,26 @@
+---
+import { contact } from '../../data/contact';
+---
+<header class="sticky top-0 z-10 border-b border-background-alt bg-background">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-16">
+    <a href="#hero" class="shrink-0">
+      <img src="/brand/logo-horizontal.png" alt="G&S Conexiones Estratégicas" class="h-9 w-auto" />
+    </a>
+    <nav class="flex items-center gap-6">
+      <a href="#que-hacemos" class="hidden text-sm font-bold text-secondary transition-base hover:text-primary md:inline">
+        Qué hacemos
+      </a>
+      <a href="#historia" class="hidden text-sm font-bold text-secondary transition-base hover:text-primary md:inline">
+        Nuestra historia
+      </a>
+      <a
+        href={contact.whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="rounded-sm bg-accent px-4 py-2 text-sm font-bold text-primary transition-base hover:opacity-90"
+      >
+        Escríbenos por WhatsApp
+      </a>
+    </nav>
+  </div>
+</header>
