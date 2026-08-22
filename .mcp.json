@@ -1,4 +1,5 @@
 {
+  "_note": "Los servidores MCP se invocan con npx aunque el proyecto use pnpm: no son una dependencia del proyecto, son un binario que se ejecuta una vez al conectar el servidor. Es la convencion estandar en la documentacion de MCP independientemente del package manager del repo.",
   "mcpServers": {
     "figma": {
       "command": "npx",

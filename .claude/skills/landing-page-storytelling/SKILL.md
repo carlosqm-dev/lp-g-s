@@ -48,8 +48,8 @@ no eliminar el beat.
    lugar que se edita por cliente.
 5. **Llena `design-system/tokens.json`** (color, tipografía, spacing) con
    la identidad del cliente — ver la skill `visual-design`.
-6. **Corre `npm run tokens:sync`** (o simplemente `npm run dev`, que lo
-   corre automático) para que `tokens.json` se refleje en
+6. **Corre `pnpm tokens:sync`** (o simplemente `pnpm dev`, que lo
+   corre encadenado primero) para que `tokens.json` se refleje en
    `src/styles/theme.css` y por lo tanto en las clases de Tailwind
    (`bg-primary`, `font-heading`, etc.).
 7. **Coloca los assets de marca** — ver `assets/README.md` para la
@@ -92,7 +92,7 @@ genérico para un caso especial.
 - [ ] Los 7 beats tienen copy real del cliente, cero placeholders
       ("Reemplaza con...") en `src/content/landing/`.
 - [ ] `tokens.json` no tiene ningún valor `"TBD"` — correr
-      `npm run tokens:sync` debe salir sin warning.
+      `pnpm tokens:sync` debe salir sin warning.
 - [ ] Logo en las 2-3 variantes de `assets/brand/logo/` están puestas.
 - [ ] Cada imagen tiene `alt` real, no genérico.
 - [ ] Se probó con `prefers-reduced-motion` activado (emulado en

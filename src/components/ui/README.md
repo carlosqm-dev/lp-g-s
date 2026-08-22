@@ -6,7 +6,7 @@ React, solo los componentes que necesiten estado o interacción real
 (formularios, acordeones con lógica extra, toggles).
 
 ```bash
-npx shadcn@latest add button
+pnpm dlx shadcn@latest add button
 # o el comando equivalente del componente que copies desde 21st.dev
 ```
 

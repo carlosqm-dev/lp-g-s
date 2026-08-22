@@ -93,14 +93,21 @@ GitHub) y generar un repo nuevo desde ahí por cada sitio.
 
 ## Levantar el proyecto Astro (stack ya scaffoldeado en este repo)
 
+Manejador de paquetes: **pnpm** (fijado en `package.json` vía
+`packageManager`, así corepack usa siempre la misma versión sin
+importar en qué máquina se clone el repo).
+
 ```bash
-npm install
-npm run dev
+corepack enable        # una sola vez por máquina, si no lo tienes activo
+pnpm install
+pnpm dev
 ```
 
-`npm run dev` corre automático `tokens:sync` antes de arrancar (hook
-`predev` en `package.json`), así que `design-system/tokens.json` siempre
-queda reflejado en `src/styles/theme.css` sin pasos manuales.
+`pnpm dev` y `pnpm build` corren `tokens:sync` primero (encadenado en el
+propio script, no como hook implícito — pnpm no ejecuta `predev`/
+`prebuild` automáticamente como npm), así que
+`design-system/tokens.json` siempre queda reflejado en
+`src/styles/theme.css` sin pasos manuales.
 
 Para el flujo completo de una landing (el entregable más común), ver
 `.claude/skills/landing-page-storytelling/SKILL.md` — trae el checklist

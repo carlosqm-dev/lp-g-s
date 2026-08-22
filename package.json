@@ -2,12 +2,11 @@
   "name": "landing-page-project",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@11.22.0",
   "scripts": {
     "tokens:sync": "node scripts/generate-theme.mjs",
-    "predev": "npm run tokens:sync",
-    "prebuild": "npm run tokens:sync",
-    "dev": "astro dev",
-    "build": "astro build",
+    "dev": "pnpm run tokens:sync && astro dev",
+    "build": "pnpm run tokens:sync && astro build",
     "preview": "astro preview"
   },
   "dependencies": {

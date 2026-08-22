@@ -1,7 +1,9 @@
 // Lee design-system/tokens.json (fuente de verdad, la llena la skill
 // visual-design) y genera src/styles/theme.css con la sintaxis @theme de
-// Tailwind v4. Correr con `npm run tokens:sync`, o automatico antes de
-// `dev`/`build` via los hooks predev/prebuild en package.json.
+// Tailwind v4. Correr con `pnpm tokens:sync`, o automatico: `pnpm dev` y
+// `pnpm build` lo encadenan primero (ver scripts en package.json — pnpm
+// no ejecuta hooks predev/prebuild implícitos como npm, por eso queda
+// encadenado explícito en vez de depender de esa convención).
 //
 // No edites src/styles/theme.css a mano — se sobreescribe en cada sync.
 // Si necesitas un token nuevo, agregalo en tokens.json y vuelve a correr
