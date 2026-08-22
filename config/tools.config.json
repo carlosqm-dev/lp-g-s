@@ -1,0 +1,45 @@
+{
+  "_readme": "Este archivo es el unico punto de personalizacion de herramientas. Las skills lo leen antes de recomendar sintaxis o comandos. Cambia 'tool' por lo que uses; deja 'TBD' si aun no decides.",
+  "roles": {
+    "component_library": {
+      "role_description": "Fuente de componentes UI ya montados (botones, cards, navs, etc.)",
+      "tool": "TBD",
+      "examples": ["21st.dev", "shadcn/ui", "Material UI", "componentes propios en Figma"]
+    },
+    "design_reference": {
+      "role_description": "Herramienta de mockup / wireframe, idealmente conectada por MCP",
+      "tool": "TBD",
+      "examples": ["Figma", "Excalidraw", "papel + boceto"]
+    },
+    "image_generation": {
+      "role_description": "Generacion o edicion de imagenes, ilustraciones, hero graphics",
+      "tool": "TBD",
+      "examples": ["Midjourney", "Ideogram", "Photoshop", "banco de fotos con licencia"]
+    },
+    "video_generation": {
+      "role_description": "Generacion de video, b-roll, loops de fondo, demos de producto",
+      "tool": "TBD",
+      "examples": ["Higgsfield", "Runway", "Kling", "grabacion real editada"]
+    },
+    "animation_scroll": {
+      "role_description": "Animacion orquestada ligada al scroll, timelines complejos, morphing SVG",
+      "tool": "TBD",
+      "examples": ["GSAP + ScrollTrigger", "Motion (scroll-linked)", "CSS scroll-timeline nativo"]
+    },
+    "animation_component": {
+      "role_description": "Micro-interacciones a nivel de componente: hover, entrada/salida, gestos",
+      "tool": "TBD",
+      "examples": ["Motion", "React Spring", "CSS transitions"]
+    },
+    "framework": {
+      "role_description": "Framework base del sitio",
+      "tool": "TBD",
+      "examples": ["Next.js", "Astro", "vanilla HTML/CSS/JS", "Webflow"]
+    },
+    "deployment": {
+      "role_description": "Donde y como se publica el sitio",
+      "tool": "TBD",
+      "examples": ["Vercel", "Netlify", "Cloudflare Pages"]
+    }
+  }
+}
