@@ -1,6 +1,6 @@
 ---
 order: 4
-headline: "Antioquia, alcance nacional bajo requerimiento"
+headline: "Nuestra cobertura"
 subheadline: "Concentramos capacidad y control donde está nuestra operación diaria; el resto del país se atiende de forma planificada según ruta y volumen."
 ---
 
