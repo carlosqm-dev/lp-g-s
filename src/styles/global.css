@@ -4,6 +4,13 @@
 /* Utilidades globales minimas. La mayoria del estilo vive en clases de
    Tailwind directamente en los componentes .astro / .tsx. */
 
+/* Los accesos del header son anclas: el scroll suave y el offset evitan
+   que el header fijo tape el titulo de la seccion de destino. */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
