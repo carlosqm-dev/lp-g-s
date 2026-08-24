@@ -36,19 +36,32 @@ function useCardCurtainRevealContext() {
   return context;
 }
 
-const CardCurtainReveal = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ children, className, ...props }, ref) => {
-    const [isMouseIn, setIsMouseIn] = React.useState(false);
-    const handleMouseEnter = React.useCallback(() => setIsMouseIn(true), []);
-    const handleMouseLeave = React.useCallback(() => setIsMouseIn(false), []);
+interface CardCurtainRevealProps extends React.HTMLAttributes<HTMLDivElement> {
+  /**
+   * Modo controlado: si se pasa, la cortina la maneja el padre (por ejemplo
+   * un acordeon donde solo una card puede estar abierta) y el hover se
+   * desactiva. Si se omite, la card vuelve a su comportamiento original de
+   * abrir con el mouse encima.
+   */
+  open?: boolean;
+}
+
+const CardCurtainReveal = React.forwardRef<HTMLDivElement, CardCurtainRevealProps>(
+  ({ children, className, open, ...props }, ref) => {
+    const [isHovered, setIsHovered] = React.useState(false);
+    const isControlled = open !== undefined;
+    const isMouseIn = isControlled ? open : isHovered;
+
+    const handleMouseEnter = React.useCallback(() => setIsHovered(true), []);
+    const handleMouseLeave = React.useCallback(() => setIsHovered(false), []);
 
     return (
       <CardCurtainRevealContext.Provider value={{ isMouseIn }}>
         <div
           ref={ref}
           className={cn('relative flex flex-col gap-2 overflow-hidden', className)}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onMouseEnter={isControlled ? undefined : handleMouseEnter}
+          onMouseLeave={isControlled ? undefined : handleMouseLeave}
           {...props}
         >
           {children}
