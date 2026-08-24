@@ -96,15 +96,24 @@ const CardCurtainRevealBody = React.forwardRef<HTMLDivElement, React.HtmlHTMLAtt
 );
 CardCurtainRevealBody.displayName = 'CardCurtainRevealBody';
 
-const CardCurtainRevealTitle = React.forwardRef<HTMLHeadingElement, HTMLMotionProps<'h3'>>(
-  ({ className, ...props }, ref) => {
+interface CardCurtainRevealTitleProps extends HTMLMotionProps<'h3'> {
+  /**
+   * Cuanto baja el titulo mientras la card esta cerrada. Depende del alto
+   * de la card: un valor fijo choca con lo que haya debajo si la card se
+   * achica. 170 es el valor original de shadcn.
+   */
+  closedOffset?: number;
+}
+
+const CardCurtainRevealTitle = React.forwardRef<HTMLHeadingElement, CardCurtainRevealTitleProps>(
+  ({ className, closedOffset = 170, ...props }, ref) => {
     const { isMouseIn } = useCardCurtainRevealContext();
 
     return (
       <motion.h3
         ref={ref}
         className={className}
-        animate={isMouseIn ? { y: 0 } : { y: 170 }}
+        animate={isMouseIn ? { y: 0 } : { y: closedOffset }}
         transition={{ duration: 0.3, ease: 'easeOut' }}
         {...props}
       />
