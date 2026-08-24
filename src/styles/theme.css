@@ -1,10 +1,17 @@
 @theme {
   --color-primary: #002A41;
+  --color-primary-foreground: #FFFFFF;
   --color-secondary: #335567;
+  --color-secondary-foreground: #FFFFFF;
   --color-accent: #94C23D;
+  --color-accent-foreground: #002A41;
   --color-background: #FFFFFF;
   --color-background-alt: #EBEEF0;
   --color-text: #002A41;
+  --color-ring: #94C23D;
+  --color-input: #EBEEF0;
+  --color-destructive: #B3261E;
+  --color-destructive-foreground: #FFFFFF;
   --font-heading: Poppins, 'Helvetica Neue', Arial, sans-serif;
   --font-body: Lato, 'Helvetica Neue', Arial, sans-serif;
   --spacing-0: 4px;

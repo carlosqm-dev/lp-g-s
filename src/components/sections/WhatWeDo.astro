@@ -1,6 +1,7 @@
 ---
 import { getEntry } from 'astro:content';
 import { services } from '../../data/services';
+import { WhatWeDoCards } from './WhatWeDoCards';
 
 const { data } = await getEntry('landing', '03-what-we-do');
 ---
@@ -8,16 +9,8 @@ const { data } = await getEntry('landing', '03-what-we-do');
   <div class="mx-auto max-w-6xl">
     <h2 class="font-heading text-3xl md:text-4xl">{data.headline}</h2>
     {data.subheadline && <p class="mt-3 max-w-2xl text-secondary">{data.subheadline}</p>}
-    <div class="mt-12 grid gap-6 md:grid-cols-3">
-      {services.map((service) => (
-        <div class="rounded-lg border border-background-alt bg-background p-6">
-          <div class="mb-4 flex min-h-[140px] items-center justify-center rounded-md border border-dashed border-secondary/40 bg-background-alt text-center text-xs text-secondary">
-            [Imagen — ver assets/images/shot-list.md]
-          </div>
-          <h3 class="font-heading text-xl">{service.title}</h3>
-          <p class="mt-2 text-secondary">{service.description}</p>
-        </div>
-      ))}
+    <div class="mt-12">
+      <WhatWeDoCards services={services} client:visible />
     </div>
   </div>
 </section>
