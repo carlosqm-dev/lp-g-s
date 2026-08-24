@@ -1,6 +1,6 @@
 ---
-// Header fijo, transparente sobre el Hero. Pasa a fondo blanco + logo/enlaces
-// oscuros al hacer scroll — el toggle de la clase `.is-scrolled` vive en
+// Header fijo, transparente sobre el Hero. Pasa a liquid glass navy al
+// hacer scroll — el toggle de la clase `.is-scrolled` vive en
 // src/animations/header-scroll.ts (GSAP ScrollTrigger).
 //
 // Mismo grid de 3 columnas en los dos breakpoints (izquierda / centro /
@@ -14,7 +14,7 @@ import { navLinks } from '../../data/nav';
 ---
 <header
   id="site-header"
-  class="fixed inset-x-0 top-0 z-50 border-b border-transparent transition-colors duration-300"
+  class="fixed inset-x-0 top-0 z-50 border border-transparent transition-all duration-300"
 >
   <!-- A diferencia de las secciones, el header no se acota a max-w-6xl:
        ocupa todo el ancho para que los accesos arranquen pegados al borde
@@ -43,32 +43,18 @@ import { navLinks } from '../../data/nav';
       ))}
     </nav>
 
-    <a href="#hero" class="relative block h-11 w-11 justify-self-center md:hidden" aria-label="G&S Conexiones Estratégicas — inicio">
-      <img
-        src="/brand/isotipo-white.png"
-        alt=""
-        aria-hidden="true"
-        class="header-logo-white absolute inset-0 h-full w-full object-contain transition-opacity duration-300"
-      />
-      <img
-        src="/brand/isotipo-black.png"
-        alt=""
-        aria-hidden="true"
-        class="header-logo-black absolute inset-0 h-full w-full object-contain opacity-0 transition-opacity duration-300"
-      />
+    <!-- Una sola version blanca de cada logo: el header es oscuro tanto
+         sobre el Hero como en glass, asi que ya no hace falta el par
+         blanco/negro con crossfade. -->
+    <a href="#hero" class="block h-11 w-11 justify-self-center md:hidden" aria-label="G&S Conexiones Estratégicas — inicio">
+      <img src="/brand/isotipo-white.png" alt="" aria-hidden="true" class="h-full w-full object-contain" />
     </a>
 
-    <a href="#hero" class="relative hidden aspect-[640/312] justify-self-center md:block md:h-14">
+    <a href="#hero" class="hidden aspect-[640/312] justify-self-center md:block md:h-14">
       <img
         src="/brand/logo-horizontal-white.png"
         alt="G&S Conexiones Estratégicas"
-        class="header-logo-white absolute inset-0 h-full w-full object-contain transition-opacity duration-300"
-      />
-      <img
-        src="/brand/logo-horizontal-black.png"
-        alt=""
-        aria-hidden="true"
-        class="header-logo-black absolute inset-0 h-full w-full object-contain opacity-0 transition-opacity duration-300"
+        class="h-full w-full object-contain"
       />
     </a>
 
@@ -76,7 +62,7 @@ import { navLinks } from '../../data/nav';
       href={contact.whatsappHref}
       target="_blank"
       rel="noopener noreferrer"
-      class="justify-self-end rounded-sm bg-accent px-4 py-2 text-sm font-bold text-primary transition-base hover:opacity-90"
+      class="justify-self-end rounded-full bg-accent px-5 py-2 text-sm font-bold text-primary transition-base hover:opacity-90"
     >
       Contacto
     </a>
@@ -118,31 +104,30 @@ import { navLinks } from '../../data/nav';
     transform: scaleX(1);
   }
 
+  /* Al hacer scroll el header pasa a liquid glass navy, la misma receta
+     del panel movil: navy translucido + blur con saturate para que el
+     fondo se funda en vez de verse gris, borde claro y highlight inset
+     de 1px que simula el canto de vidrio. Al ser oscuro, el logo y los
+     enlaces se quedan en blanco: no hay crossfade a la version negra. */
   #site-header.is-scrolled {
-    background-color: var(--color-background);
-    border-color: var(--color-background-alt);
-  }
-
-  #site-header.is-scrolled .header-nav a {
-    color: var(--color-secondary);
-  }
-
-  #site-header.is-scrolled .header-logo-white {
-    opacity: 0;
-  }
-
-  #site-header.is-scrolled .header-logo-black {
-    opacity: 1;
+    /* El margen despega la barra de los bordes para que se lea como una
+       pastilla flotante; el radio grande la cierra por completo. */
+    margin: 0.75rem 1rem;
+    border-radius: 9999px;
+    background-color: color-mix(in srgb, var(--color-primary) 55%, transparent);
+    border-color: color-mix(in srgb, var(--color-background) 22%, transparent);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    backdrop-filter: blur(24px) saturate(180%);
+    box-shadow:
+      0 12px 32px -12px color-mix(in srgb, var(--color-primary) 45%, transparent),
+      inset 0 1px 0 color-mix(in srgb, var(--color-background) 28%, transparent);
   }
 
   /* Isotipo y hamburguesa van sueltos sobre el header, sin contenedor
-     propio: heredan el mismo crossfade blanco -> negro que el resto. */
+     propio, y en blanco en los dos estados: el glass navy no necesita
+     invertirlos. */
   .menu-toggle {
     color: var(--color-background);
-  }
-
-  #site-header.is-scrolled .menu-toggle {
-    color: var(--color-secondary);
   }
 
   /* --- Boton hamburguesa: 3 barras que se cruzan en X al abrir --- */

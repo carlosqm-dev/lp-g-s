@@ -12,7 +12,7 @@ const { data } = await getEntry('landing', '09-final-cta');
       href={contact.whatsappHref}
       target="_blank"
       rel="noopener noreferrer"
-      class="mt-8 inline-flex items-center gap-2 rounded-md border-2 border-background px-8 py-4 font-heading text-lg text-background transition-base hover:bg-background hover:text-primary"
+      class="mt-8 inline-flex items-center gap-2 rounded-full border-2 border-background px-9 py-4 font-heading text-lg text-background transition-base hover:bg-background hover:text-primary"
     >
       {data.cta_label}
       {!contact.whatsappNumber && (
