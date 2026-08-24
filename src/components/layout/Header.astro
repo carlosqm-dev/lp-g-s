@@ -16,7 +16,10 @@ import { navLinks } from '../../data/nav';
   id="site-header"
   class="fixed inset-x-0 top-0 z-50 border-b border-transparent transition-colors duration-300"
 >
-  <div class="mx-auto grid max-w-6xl grid-cols-[1fr_auto_1fr] items-center px-6 py-4 md:px-16">
+  <!-- A diferencia de las secciones, el header no se acota a max-w-6xl:
+       ocupa todo el ancho para que los accesos arranquen pegados al borde
+       y quede aire entre ellos y el logo centrado. -->
+  <div class="grid grid-cols-[1fr_auto_1fr] items-center px-6 py-4 md:px-10">
     <button
       id="menu-toggle"
       type="button"
@@ -33,7 +36,7 @@ import { navLinks } from '../../data/nav';
     </button>
 
     <nav class="header-nav hidden items-center gap-6 justify-self-start md:flex" aria-label="Principal">
-      {navLinks.filter((link) => link.primary).map((link) => (
+      {navLinks.map((link) => (
         <a href={link.href} class="header-nav-link relative text-sm font-bold transition-colors duration-300">
           {link.label}
         </a>
