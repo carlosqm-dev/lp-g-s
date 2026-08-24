@@ -5,6 +5,6 @@ export interface Stat {
 
 export const stats: Stat[] = [
   { value: '20+', label: 'Años de trayectoria' },
-  { value: '2.500 t', label: 'Transportadas al mes' },
-  { value: 'Antioquia +', label: 'Cobertura nacional bajo demanda' },
+  { value: '2.500 t', label: 'Botellas PET transportadas al mes' },
+  { value: '10+', label: 'Ciudades con cobertura nacional bajo demanda' },
 ];
