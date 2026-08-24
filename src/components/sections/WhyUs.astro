@@ -1,22 +1,13 @@
 ---
 import { getEntry } from 'astro:content';
 import { attributes } from '../../data/attributes';
+import { AttributesCarousel } from './AttributesCarousel';
 
 const { data } = await getEntry('landing', '05-why-us');
 ---
 <section class="gsap-section bg-background-alt px-6 py-20 md:px-16 md:py-24" data-section="why-us">
   <div class="mx-auto max-w-6xl">
-    <h2 class="font-heading text-3xl md:text-4xl">{data.headline}</h2>
-    <div class="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-4">
-      {attributes.map((attr) => (
-        <div class="text-center">
-          <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-accent font-heading font-bold text-primary">
-            {attr.icon}
-          </div>
-          <h3 class="font-heading text-lg">{attr.title}</h3>
-          <p class="mt-2 text-secondary">{attr.description}</p>
-        </div>
-      ))}
-    </div>
+    <!-- El h2 lo renderiza el carrusel: comparte fila con las flechas. -->
+    <AttributesCarousel attributes={attributes} headline={data.headline} client:visible />
   </div>
 </section>
