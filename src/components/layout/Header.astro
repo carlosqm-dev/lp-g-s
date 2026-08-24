@@ -1,26 +1,85 @@
 ---
+// Header fijo, transparente sobre el Hero, con logo centrado (nav a la
+// izquierda, CTA a la derecha). Pasa a fondo blanco + logo/enlaces
+// oscuros al hacer scroll — el toggle de la clase `.is-scrolled` vive en
+// src/animations/header-scroll.ts (GSAP ScrollTrigger).
 import { contact } from '../../data/contact';
 ---
-<header class="sticky top-0 z-10 border-b border-background-alt bg-background">
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-16">
-    <a href="#hero" class="shrink-0">
-      <img src="/brand/logo-horizontal.png" alt="G&S Conexiones Estratégicas" class="h-9 w-auto" />
-    </a>
-    <nav class="flex items-center gap-6">
-      <a href="#que-hacemos" class="hidden text-sm font-bold text-secondary transition-base hover:text-primary md:inline">
+<header
+  id="site-header"
+  class="fixed inset-x-0 top-0 z-50 border-b border-transparent transition-colors duration-300"
+>
+  <div class="mx-auto grid max-w-6xl grid-cols-[1fr_auto_1fr] items-center px-6 py-4 md:px-16">
+    <nav class="header-nav flex items-center gap-6 justify-self-start">
+      <a href="#que-hacemos" class="header-nav-link relative hidden text-sm font-bold transition-colors duration-300 md:inline">
         Qué hacemos
       </a>
-      <a href="#historia" class="hidden text-sm font-bold text-secondary transition-base hover:text-primary md:inline">
+      <a href="#historia" class="header-nav-link relative hidden text-sm font-bold transition-colors duration-300 md:inline">
         Nuestra historia
       </a>
-      <a
-        href={contact.whatsappHref}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="rounded-sm bg-accent px-4 py-2 text-sm font-bold text-primary transition-base hover:opacity-90"
-      >
-        Escríbenos por WhatsApp
-      </a>
     </nav>
+
+    <a href="#hero" class="relative block aspect-[640/312] h-11 justify-self-center md:h-14">
+      <img
+        src="/brand/logo-horizontal-white.png"
+        alt="G&S Conexiones Estratégicas"
+        class="header-logo-white absolute inset-0 h-full w-full object-contain transition-opacity duration-300"
+      />
+      <img
+        src="/brand/logo-horizontal-black.png"
+        alt=""
+        aria-hidden="true"
+        class="header-logo-black absolute inset-0 h-full w-full object-contain opacity-0 transition-opacity duration-300"
+      />
+    </a>
+
+    <a
+      href={contact.whatsappHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="justify-self-end rounded-sm bg-accent px-4 py-2 text-sm font-bold text-primary transition-base hover:opacity-90"
+    >
+      Contacto
+    </a>
   </div>
 </header>
+
+<style>
+  .header-nav a {
+    color: var(--color-background);
+  }
+
+  .header-nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 2px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s var(--ease-standard);
+  }
+
+  .header-nav-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  #site-header.is-scrolled {
+    background-color: var(--color-background);
+    border-color: var(--color-background-alt);
+  }
+
+  #site-header.is-scrolled .header-nav a {
+    color: var(--color-secondary);
+  }
+
+  #site-header.is-scrolled .header-logo-white {
+    opacity: 0;
+  }
+
+  #site-header.is-scrolled .header-logo-black {
+    opacity: 1;
+  }
+</style>

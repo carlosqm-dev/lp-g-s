@@ -4,29 +4,33 @@ import { contact } from '../../data/contact';
 
 const { data } = await getEntry('landing', '01-hero');
 ---
-<section id="hero" class="bg-primary px-6 py-24 text-background md:px-16 md:py-32" data-section="hero">
-  <div class="mx-auto grid max-w-6xl items-center gap-16 md:grid-cols-[1.1fr_0.9fr]">
-    <div>
-      <h1 class="hero-reveal-item font-heading text-4xl leading-tight md:text-6xl">{data.headline}</h1>
-      {data.subheadline && (
-        <p class="hero-reveal-item mt-6 max-w-[46ch] text-lg text-background/80 md:text-xl">{data.subheadline}</p>
-      )}
-      {data.cta_label && (
-        <a
-          href={contact.whatsappHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="hero-reveal-item mt-8 inline-flex items-center rounded-md bg-accent px-6 py-3 font-heading font-semibold text-primary transition-base hover:opacity-90"
-        >
-          {data.cta_label}
-        </a>
-      )}
-    </div>
-    <!-- Imagen real pendiente (ver assets/images/shot-list.md). Cuando
-         llegue: <img> con fetchpriority="high" y sin loading="lazy" — es
-         la candidata a LCP del sitio. -->
-    <div class="hero-reveal-item flex min-h-[280px] items-center justify-center rounded-lg border border-dashed border-background/30 bg-white/5 p-6 text-center text-sm text-background/70 md:min-h-[360px]">
-      [Imagen/video: flota o carretera — ver assets/images/shot-list.md]
-    </div>
+<section
+  id="hero"
+  class="relative flex min-h-dvh flex-col justify-end overflow-hidden bg-primary px-6 pb-16 pt-32 text-background md:px-16 md:pb-24"
+  data-section="hero"
+>
+  <!-- Foto real del camion pendiente (ver assets/images/shot-list.md).
+       Cuando llegue: reemplazar este div por
+       <img src="/images/hero/camion.jpg" alt="..." fetchpriority="high"
+       class="absolute inset-0 -z-20 h-full w-full object-cover" /> —
+       sin loading="lazy", es la candidata a LCP del sitio. -->
+  <div class="absolute inset-0 -z-20 bg-primary"></div>
+  <div class="absolute inset-0 -z-10 bg-gradient-to-t from-primary via-primary/60 to-primary/10"></div>
+
+  <div class="max-w-xl">
+    <h1 class="hero-reveal-item font-heading text-3xl leading-tight md:text-4xl">{data.headline}</h1>
+    {data.subheadline && (
+      <p class="hero-reveal-item mt-3 max-w-[46ch] text-base text-background/80 md:text-lg">{data.subheadline}</p>
+    )}
+    {data.cta_label && (
+      <a
+        href={contact.whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hero-reveal-item mt-5 inline-flex items-center rounded-md bg-accent px-6 py-3 font-heading font-semibold text-primary transition-base hover:opacity-90"
+      >
+        {data.cta_label}
+      </a>
+    )}
   </div>
 </section>
