@@ -1,31 +1,47 @@
 ---
-// Pantalla de carga. El comportamiento (conteo, salida en cortina
+// Pantalla de carga. El comportamiento (temporizado, salida en cortina
 // diagonal) vive en src/animations/preloader.ts — este componente es
 // solo el markup + el estado visual base/leaving.
 ---
 <div
   id="preloader"
-  class="fixed inset-0 z-[100] flex items-end justify-between bg-background px-8 py-16 md:px-24"
-  style="clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%); transition: transform 0.9s cubic-bezier(0.76, 0, 0.24, 1);"
+  class="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-2 bg-white"
   aria-hidden="true"
 >
-  <div
-    class="preloader-percent font-heading font-bold text-primary"
-    style="font-size: clamp(80px, 15vw, 160px); line-height: 1;"
-  >
-    0
-  </div>
-  <svg class="preloader-truck h-[60px] w-[120px]" viewBox="0 0 120 60" aria-hidden="true">
-    <rect x="2" y="24" width="60" height="24" rx="3" fill="#94C23D" />
-    <path d="M62 30h20l16 14v4H62z" fill="#94C23D" />
-    <circle class="wheel" cx="20" cy="50" r="7" fill="#002A41" />
-    <circle class="wheel" cx="52" cy="50" r="7" fill="#002A41" />
-    <circle class="wheel" cx="90" cy="50" r="7" fill="#002A41" />
-  </svg>
+  <img
+    src="/brand/logo-horizontal.png"
+    alt="G&S Conexiones Estratégicas"
+    class="h-16 w-auto md:h-20"
+  />
+  <p class="preloader-text font-heading text-xl font-medium text-primary md:text-2xl">
+    Cargando...
+  </p>
 </div>
 
 <style>
+  .preloader-text {
+    animation: preloader-pulse 1.2s ease-in-out infinite;
+  }
+
+  @keyframes preloader-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+
+  #preloader {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transition:
+      transform 0.9s cubic-bezier(0.76, 0, 0.24, 1),
+      clip-path 0.9s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
   #preloader.is-leaving {
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
     transform: translateY(-110%);
     pointer-events: none;
   }

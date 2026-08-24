@@ -13,6 +13,14 @@ const { title, description = '' } = Astro.props;
 <!doctype html>
 <html lang="es">
 <head>
+  <script>
+    // Evita que el navegador restaure el scroll al recargar: cada carga
+    // debe arrancar desde el hero, no a mitad de página.
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
