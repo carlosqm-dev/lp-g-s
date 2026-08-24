@@ -1,6 +1,7 @@
 ---
 // Estatico: el footer no es parte del arco narrativo, no lleva animacion de scroll.
 import { contact } from '../../data/contact';
+import { navLinks } from '../../data/nav';
 ---
 <footer class="border-t border-background-alt bg-[#001c2c] px-6 py-16 text-sm text-[#cdd8de] md:px-16">
   <div class="mx-auto grid max-w-6xl gap-8 md:grid-cols-[1.2fr_1fr_1fr]">
@@ -10,9 +11,14 @@ import { contact } from '../../data/contact';
     </div>
     <div>
       <h3 class="mb-3 font-heading text-sm text-white">Navegación</h3>
-      <a href="#que-hacemos" class="mb-2 block hover:text-white">Qué hacemos</a>
-      <a href="#historia" class="mb-2 block hover:text-white">Nuestra historia</a>
-      <a href="#contacto" class="mb-2 block hover:text-white">Contacto</a>
+      <!-- Misma fuente que el header (src/data/nav.ts): los accesos no se
+           repiten a mano para que no se desincronicen. -->
+      <nav aria-label="Footer">
+        {navLinks.map((link) => (
+          <a href={link.href} class="mb-2 block hover:text-white">{link.label}</a>
+        ))}
+        <a href="#contacto" class="mb-2 block hover:text-white">Contacto</a>
+      </nav>
     </div>
     <div>
       <h3 class="mb-3 font-heading text-sm text-white">Contacto</h3>
