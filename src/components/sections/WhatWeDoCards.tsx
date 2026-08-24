@@ -39,7 +39,7 @@ export function WhatWeDoCards({ services }: { services: Service[] }) {
                 toggle(index);
               }
             }}
-            className="h-[440px] cursor-pointer rounded-lg bg-primary text-background shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:h-[470px]"
+            className="h-[440px] cursor-pointer rounded-3xl bg-primary text-background shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:h-[470px]"
           >
             <CardCurtainRevealBody className="text-center">
               <CardCurtainRevealTitle
