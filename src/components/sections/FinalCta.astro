@@ -15,16 +15,16 @@ const { data } = await getEntry('landing', '09-final-cta');
       />
       <h2 class="display-title mx-auto whitespace-pre text-center text-[clamp(1.62rem,8.2vw,6.8rem)]">{data.headline}</h2>
     </div>
-    {data.subheadline && <p class="mx-auto mt-6 max-w-[44ch] text-center text-sm leading-relaxed text-primary/70 md:text-base">{data.subheadline}</p>}
+    {data.subheadline && <p class="body-copy mx-auto mt-6 max-w-[44ch] text-center text-primary/70">{data.subheadline}</p>}
     {data.cta_label && (
       <div class="mt-9 flex justify-center">
         <a
           href={contact.whatsappHref}
           target="_blank"
           rel="noopener noreferrer"
-          class="group inline-flex min-h-14 items-center gap-7 whitespace-nowrap bg-primary px-6 font-semibold text-background transition-base hover:-translate-y-1 md:px-9"
+          class="cta-lift inline-flex min-h-14 items-center justify-center whitespace-nowrap bg-primary px-6 font-semibold text-background md:px-9"
         >
-          {data.cta_label}<span aria-hidden="true" class="text-2xl text-accent transition-transform group-hover:translate-x-1">↗</span>
+          {data.cta_label}
         </a>
       </div>
     )}

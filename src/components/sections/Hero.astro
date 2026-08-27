@@ -7,15 +7,21 @@ const [headlineLead, headlineTail] = data.headline.split(', ');
 ---
 <section
   id="hero"
-  class="industrial-grid relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-primary pb-8 pt-28 text-background md:min-h-dvh md:pb-12 md:pt-36"
+  class="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden bg-primary pb-8 pt-28 text-background md:min-h-dvh md:pb-12 md:pt-36"
   data-section="hero"
 >
   <div class="absolute inset-0 -z-20 bg-primary"></div>
-  <div class="hero-beam absolute -right-[28%] top-[10%] -z-10 h-[70%] w-[86%] rotate-[-9deg] border border-background/15 bg-[linear-gradient(120deg,rgba(148,194,61,.04),rgba(148,194,61,.22))] md:right-[-8%] md:top-[5%] md:w-[62%]"></div>
-  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_70%_40%,rgba(148,194,61,.14),transparent_30%),linear-gradient(to_top,rgba(0,42,65,.98),rgba(0,42,65,.18))]"></div>
-  <div aria-hidden="true" class="route-streaks absolute inset-y-0 right-0 -z-10 w-1/2 opacity-35">
-    <span></span><span></span><span></span>
-  </div>
+  <img
+    src="/images/hero/camion-en-ruta.webp"
+    alt="Imagen conceptual de un camión de carga circulando por una carretera montañosa de Antioquia"
+    width="1672"
+    height="941"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+    class="absolute inset-0 -z-20 h-full w-full object-cover object-[64%_center]"
+  />
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_70%_40%,rgba(148,194,61,.12),transparent_28%),linear-gradient(to_top,rgba(0,42,65,.98)_4%,rgba(0,42,65,.58)_48%,rgba(0,42,65,.22))]"></div>
 
   <div class="section-shell">
     <div class="md:grid md:grid-cols-[minmax(0,1fr)_13rem] md:items-end md:gap-8 lg:grid-cols-[1.45fr_0.55fr]">
@@ -23,17 +29,17 @@ const [headlineLead, headlineTail] = data.headline.split(', ');
         <span class="hero-reveal-item block">{headlineLead}</span>
         {headlineTail && <span class="hero-reveal-item block pl-[0.18em] text-accent md:pl-[0.42em]">{headlineTail}</span>}
       </h1>
-      <div class="hero-reveal-item mt-5 border-t border-background/20 pt-5 md:mb-2 md:mt-0">
-        {data.subheadline && <p class="max-w-[42ch] text-sm leading-relaxed text-background/75 md:text-base">{data.subheadline}</p>}
+      <div class="hero-reveal-item mt-5 md:mb-2 md:mt-0">
+        {data.subheadline && <p class="body-copy max-w-[42ch] text-background/75">{data.subheadline}</p>}
         <div class="mt-6 flex flex-col items-start gap-5">
           {data.cta_label && (
             <a
               href={contact.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              class="group inline-flex min-h-12 items-center gap-5 bg-accent px-5 text-sm font-semibold text-primary transition-base hover:-translate-y-1 md:min-h-14 md:w-full md:justify-between md:px-4 lg:w-auto lg:justify-start lg:whitespace-nowrap lg:px-7"
+              class="cta-lift inline-flex min-h-12 items-center justify-center bg-accent px-5 text-sm font-semibold text-primary md:min-h-14 md:w-full md:px-4 lg:w-auto lg:whitespace-nowrap lg:px-7"
             >
-              {data.cta_label}<span aria-hidden="true" class="text-xl transition-transform group-hover:translate-x-1">↗</span>
+              {data.cta_label}
             </a>
           )}
           <a href="#que-hacemos" class="hidden items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-background/60 md:flex">
@@ -44,18 +50,3 @@ const [headlineLead, headlineTail] = data.headline.split(', ');
     </div>
   </div>
 </section>
-
-<style>
-  .route-streaks span {
-    position: absolute;
-    right: 8%;
-    top: 50%;
-    display: block;
-    width: 120%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
-    transform: rotate(-38deg);
-  }
-  .route-streaks span:nth-child(2) { top: 55%; right: -5%; }
-  .route-streaks span:nth-child(3) { top: 60%; right: -18%; }
-</style>

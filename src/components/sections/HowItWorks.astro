@@ -7,21 +7,21 @@ const { data } = await getEntry('landing', '07-how-it-works');
 ---
 <section class="gsap-section bg-accent py-20 text-primary md:py-32" data-section="how-it-works">
   <div class="section-shell">
-    <div class="grid gap-6 border-b border-primary/25 pb-8 md:grid-cols-[1fr_auto] md:items-end">
+    <div class="grid gap-6 border-b border-primary/25 pb-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-10 lg:pb-6">
       <div>
-        <h2 class="display-title max-w-[9ch] text-6xl md:text-8xl">{data.headline}</h2>
+        <h2 class="display-title max-w-[9ch] text-6xl md:text-8xl lg:max-w-none lg:whitespace-nowrap">{data.headline}</h2>
       </div>
       <a
         href={contact.whatsappHref}
         target="_blank"
         rel="noopener noreferrer"
-        class="group inline-flex min-h-12 w-fit items-center gap-6 bg-primary px-5 text-sm font-semibold text-background transition-base hover:-translate-y-1"
+        class="cta-lift inline-flex min-h-12 w-fit items-center justify-center bg-primary px-5 text-sm font-semibold text-background lg:shrink-0"
       >
-        Empieza por WhatsApp <span aria-hidden="true" class="text-xl transition-transform group-hover:translate-x-1">↗</span>
+        Empieza por WhatsApp
       </a>
     </div>
 
-    <div class="process-track mt-10 grid gap-12 md:mt-16 md:grid-cols-4 md:gap-6">
+    <div class="process-track mt-10 grid gap-12 md:mt-16 md:grid-cols-4 md:gap-6 lg:mt-10">
       {steps.map((step, index) => (
         <article class="process-step relative">
           <div class="group relative flex min-h-[18rem] items-center justify-center border border-background/15 bg-primary p-6 text-center text-background motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out motion-safe:hover:-translate-y-1 md:min-h-[22rem] md:p-5">
@@ -30,7 +30,7 @@ const { data } = await getEntry('landing', '07-how-it-works');
             </span>
             <div class="relative z-10 flex flex-col items-center">
               <h3 class="max-w-[13ch] font-heading text-3xl font-semibold uppercase leading-[0.95] text-background md:text-4xl">{step.title}</h3>
-              <p class="mt-4 max-w-[28ch] text-sm leading-relaxed text-background/65">{step.description}</p>
+              <p class="body-copy mt-4 max-w-[28ch] text-background/65">{step.description}</p>
             </div>
           </div>
           {index < steps.length - 1 && (

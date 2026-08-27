@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import { cn } from '@/lib/utils';
+
 import {
   Carousel,
   CarouselContent,
@@ -9,28 +11,23 @@ import {
   type CarouselApi,
 } from '../ui/carousel';
 
-type AttributeIcon = 'puntualidad' | 'flexibilidad' | 'eficiencia' | 'reputacion' | 'precio';
-
-interface Attribute {
-  icon: AttributeIcon;
-  title: string;
-  description: string;
-}
+import type { Attribute } from '../../data/attributes';
 
 export function AttributesCarousel({ attributes, headline }: { attributes: Attribute[]; headline: string }) {
   const [api, setApi] = useState<CarouselApi>();
   const [selected, setSelected] = useState(0);
-  const [snaps, setSnaps] = useState<number[]>([]);
 
   useEffect(() => {
     if (!api) return;
+
     const sync = () => {
-      setSnaps(api.scrollSnapList());
       setSelected(api.selectedScrollSnap());
     };
+
     sync();
     api.on('select', sync);
     api.on('reInit', sync);
+
     return () => {
       api.off('select', sync);
       api.off('reInit', sync);
@@ -38,26 +35,42 @@ export function AttributesCarousel({ attributes, headline }: { attributes: Attri
   }, [api]);
 
   return (
-    <Carousel setApi={setApi} opts={{ align: 'start', loop: true }} aria-label="Atributos de la marca">
+    <Carousel setApi={setApi} opts={{ align: 'center', loop: true }} aria-label="Atributos de la marca">
       <div className="border-b border-primary/20 pb-8">
         <h2 className="display-title text-6xl md:text-8xl">{headline}</h2>
       </div>
 
-      <CarouselContent className="py-8 md:py-12">
+      <CarouselContent className="-ml-3 items-center pb-6 pt-8 sm:-ml-5 md:-ml-6 md:py-14">
         {attributes.map((attr, index) => {
           const isActive = index === selected;
           const hasLongContent = attr.icon === 'precio';
+
           return (
-            <CarouselItem key={attr.title} className="basis-[88%] md:basis-1/2 xl:basis-1/3">
-              <article
-                aria-current={isActive}
-                className={`relative flex h-[25rem] flex-col border p-5 transition-all duration-500 md:h-[29rem] md:p-7 ${
+            <CarouselItem
+              key={attr.title}
+              aria-label={`${index + 1} de ${attributes.length}`}
+              className="basis-[86%] pl-3 sm:basis-[68%] sm:pl-5 md:basis-[44%] md:pl-6 lg:basis-[36%] xl:basis-[32%]"
+            >
+              <button
+                type="button"
+                onClick={() => api?.scrollTo(index)}
+                aria-label={isActive ? `${attr.title}, atributo seleccionado` : `Mostrar ${attr.title}`}
+                aria-current={isActive ? 'true' : undefined}
+                className={cn(
+                  'group block w-full origin-center cursor-pointer text-left transition-[transform,opacity] duration-500 ease-out focus-visible:outline-none',
                   isActive
-                    ? 'border-primary bg-primary text-background'
-                    : 'border-primary/20 bg-background-alt text-primary opacity-60'
-                }`}
+                    ? 'relative z-10 opacity-100 md:-translate-y-[8px]'
+                    : 'opacity-40 hover:opacity-70 md:translate-y-[8px] md:scale-[0.94]'
+                )}
               >
-                <div className={`flex items-center justify-center ${hasLongContent ? 'pt-1 md:pt-2' : 'pt-3 md:pt-5'}`}>
+                <span
+                  className={cn(
+                    'flex h-[20rem] items-center justify-center border transition-[background-color,border-color,color,box-shadow] duration-500 sm:h-[22rem] md:h-[24rem]',
+                    isActive
+                      ? 'border-primary bg-primary text-background shadow-xl'
+                      : 'border-primary/20 bg-background-alt text-primary group-hover:border-primary/40'
+                  )}
+                >
                   <img
                     src={`/icons/${attr.icon}.webp`}
                     alt=""
@@ -66,35 +79,43 @@ export function AttributesCarousel({ attributes, headline }: { attributes: Attri
                     height={72}
                     loading="lazy"
                     decoding="async"
-                    className={`object-contain ${hasLongContent ? 'h-20 w-20 md:h-24 md:w-24' : 'h-24 w-24 md:h-28 md:w-28'}`}
+                    className={cn(
+                      'object-contain transition-transform duration-500 ease-out',
+                      isActive && 'scale-110',
+                      hasLongContent ? 'h-20 w-20 md:h-24 md:w-24' : 'h-24 w-24 md:h-28 md:w-28'
+                    )}
                   />
-                </div>
-                <div className={`mt-auto border-t border-current/20 ${hasLongContent ? 'pt-4' : 'pt-5'}`}>
-                  <h3 className={`max-w-[12ch] font-heading font-semibold uppercase leading-[0.92] ${hasLongContent ? 'text-3xl md:text-4xl' : 'text-4xl md:text-5xl'}`}>{attr.title}</h3>
-                  <p className={`max-w-sm leading-relaxed ${hasLongContent ? 'mt-3 text-[13px]' : 'mt-4 text-sm'} ${isActive ? 'text-background/65' : 'text-secondary'}`}>
-                    {attr.description}
-                  </p>
-                </div>
-              </article>
+                </span>
+
+                <span
+                  aria-hidden={!isActive}
+                  className={cn(
+                    'block h-[9.5rem] transition-opacity duration-500 ease-out md:h-[10rem]',
+                    isActive ? 'opacity-100' : 'opacity-0'
+                  )}
+                >
+                  <span className="block pt-4 md:pt-5">
+                    <span
+                      className={cn(
+                        'block max-w-[13ch] font-heading font-semibold uppercase leading-[0.92] text-primary',
+                        hasLongContent ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl'
+                      )}
+                    >
+                      {attr.title}
+                    </span>
+                    <span className="mt-3 block max-w-md text-base leading-relaxed text-secondary">
+                      {attr.description}
+                    </span>
+                  </span>
+                </span>
+              </button>
             </CarouselItem>
           );
         })}
       </CarouselContent>
 
-      <div className="mt-1 flex items-center justify-center gap-3 border-t border-primary/20 pt-4">
+      <div className="flex items-center justify-end gap-2 border-t border-primary/20 pt-4 md:hidden">
         <CarouselPrevious className="static h-12 w-12 translate-y-0 rounded-none border-primary/20 bg-transparent shadow-none hover:bg-primary hover:text-background" />
-        <div className="flex items-center gap-1.5">
-          {snaps.map((_, index) => (
-            <button
-              key={index}
-              type="button"
-              onClick={() => api?.scrollTo(index)}
-              aria-label={`Ir a ${attributes[index]?.title ?? 'atributo'}`}
-              aria-current={index === selected}
-              className={`h-2 min-w-2 transition-all duration-300 ${index === selected ? 'w-10 bg-accent' : 'bg-primary/20 hover:bg-primary/40'}`}
-            />
-          ))}
-        </div>
         <CarouselNext className="static h-12 w-12 translate-y-0 rounded-none border-primary/20 bg-transparent shadow-none hover:bg-primary hover:text-background" />
       </div>
     </Carousel>

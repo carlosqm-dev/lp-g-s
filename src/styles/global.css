@@ -65,6 +65,15 @@ body {
   text-transform: uppercase;
 }
 
+.body-copy {
+  font-size: 1rem;
+  line-height: 1.625;
+}
+
+.cta-lift {
+  transition: transform 250ms ease-out;
+}
+
 .industrial-grid {
   background-image:
     linear-gradient(color-mix(in srgb, currentColor 10%, transparent) 1px, transparent 1px),
@@ -96,11 +105,21 @@ body {
   .section-shell {
     width: min(100% - 5rem, 80rem);
   }
+
+  .body-copy {
+    font-size: 1.25rem;
+  }
 }
 
 @media (min-width: 1280px) {
   body {
     background-size: 7.5rem 100%;
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .cta-lift:hover {
+    transform: translateY(-0.5rem);
   }
 }
 

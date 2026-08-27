@@ -104,6 +104,15 @@ if (!reducedMotion) {
       ease: 'power3.out',
       scrollTrigger: { trigger: impact, start: 'top 70%', once: true },
     });
+    const impactImage = impact.querySelector<HTMLElement>('.impact-image');
+    if (impactImage) {
+      gsap.to(impactImage, {
+        yPercent: -5,
+        scale: 1.025,
+        ease: 'none',
+        scrollTrigger: { trigger: impact, start: 'top bottom', end: 'bottom top', scrub: 0.8 },
+      });
+    }
     gsap.from(impact.querySelectorAll('.impact-card'), {
       yPercent: 20,
       opacity: 0,
@@ -142,11 +151,4 @@ if (!reducedMotion) {
       scrollTrigger: { trigger: history, start: 'top 62%', once: true },
     });
   }
-
-  gsap.to('.hero-beam', {
-    yPercent: 16,
-    rotate: -4,
-    ease: 'none',
-    scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.7 },
-  });
 }

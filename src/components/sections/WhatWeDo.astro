@@ -9,7 +9,7 @@ const { data } = await getEntry('landing', '03-what-we-do');
   <div class="section-shell">
     <div class="border-b border-primary/20 pb-8">
       <h2 class="display-title text-6xl md:text-8xl">{data.headline}</h2>
-      {data.subheadline && <p class="mt-5 max-w-[48ch] text-sm leading-relaxed text-secondary md:text-base">{data.subheadline}</p>}
+      {data.subheadline && <p class="body-copy mt-5 max-w-[48ch] text-secondary">{data.subheadline}</p>}
     </div>
     <div class="mt-8 md:mt-12">
       <WhatWeDoCards services={services} client:visible />

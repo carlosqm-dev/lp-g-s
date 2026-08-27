@@ -10,26 +10,25 @@ const { data } = await getEntry('landing', '08-history');
       <div>
         <h2 class="display-title max-w-[10ch] text-6xl md:text-8xl">{data.headline}</h2>
       </div>
-      {data.subheadline && <p class="max-w-[45ch] text-sm leading-relaxed text-secondary lg:justify-self-end md:text-base">{data.subheadline}</p>}
+      {data.subheadline && <p class="body-copy max-w-[45ch] text-secondary lg:justify-self-end">{data.subheadline}</p>}
     </div>
 
     <div class="mt-10 grid gap-px bg-primary/20 lg:grid-cols-[0.9fr_1.1fr]">
-      <div class="history-visual industrial-grid relative min-h-[27rem] overflow-hidden bg-primary text-background md:min-h-[38rem]">
-        <div aria-hidden="true" class="absolute inset-[12%] border border-background/20"></div>
-        <div aria-hidden="true" class="absolute left-1/2 top-1/2 h-[65%] w-px -translate-x-1/2 -translate-y-1/2 rotate-[28deg] bg-accent/60"></div>
-        <img
-          src="/brand/isotipo-white.png"
-          alt=""
-          aria-hidden="true"
-          class="pointer-events-none absolute left-1/2 top-[46%] h-auto w-[55%] -translate-x-1/2 -translate-y-1/2 object-contain opacity-[0.11]"
-        />
-        <div class="absolute inset-x-5 top-5 flex justify-between text-[9px] font-semibold uppercase tracking-[0.16em] text-background/45">
-          <span>Empresa familiar</span><span>20+ años</span>
+      <div class="flex flex-col gap-px bg-primary/20">
+        <div class="history-visual relative isolate min-h-[27rem] overflow-hidden bg-primary text-background md:min-h-[38rem]">
+          <img
+            src="/images/historia/fundadores-conceptual.webp"
+            alt="Imagen conceptual de un padre y su hijo trabajando juntos junto a un camión"
+            width="1536"
+            height="1024"
+            loading="lazy"
+            decoding="async"
+            class="absolute inset-0 -z-20 h-full w-full object-cover object-[54%_center]"
+          />
+          <div aria-hidden="true" class="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(0,42,65,.94),rgba(0,42,65,.08)_68%)]"></div>
+          <p class="absolute inset-x-5 bottom-5 max-w-[23ch] font-heading text-3xl font-semibold uppercase leading-[0.95] text-background md:text-4xl">Dos generaciones. Una misma ruta.</p>
         </div>
-        <div class="absolute inset-x-5 bottom-5 border-t border-background/20 pt-4">
-          <p class="max-w-[23ch] font-heading text-3xl font-semibold uppercase leading-[0.95] text-background md:text-4xl">Dos generaciones. Una misma ruta.</p>
-          <span class="mt-4 inline-block text-[9px] font-semibold uppercase tracking-[0.14em] text-accent">Imagen conceptual temporal</span>
-        </div>
+        <blockquote class="bg-background-alt p-6 font-heading text-3xl font-semibold uppercase leading-[0.95] md:p-8 md:text-5xl">“{foundersQuote.text}”</blockquote>
       </div>
 
       <div class="bg-background p-5 md:p-8">
@@ -40,19 +39,12 @@ const { data } = await getEntry('landing', '08-history');
                 {milestone.eyebrow}
                 {!milestone.dateConfirmed && <span class="border border-primary/20 px-1.5 py-0.5 text-[8px]">Fecha por confirmar</span>}
               </div>
-              <p class="mt-2 max-w-[44ch] text-sm leading-relaxed text-secondary">{milestone.description}</p>
+              <p class="body-copy mt-2 max-w-[44ch] text-secondary">{milestone.description}</p>
             </article>
           ))}
         </div>
       </div>
     </div>
 
-    <blockquote class="mt-px grid gap-px bg-primary/20 md:grid-cols-[1fr_auto]">
-      <p class="bg-background-alt p-6 font-heading text-3xl font-semibold uppercase leading-[0.95] md:p-9 md:text-5xl">“{foundersQuote.text}”</p>
-      <footer class="flex min-w-64 flex-col justify-end bg-primary p-6 text-background md:p-8">
-        <span class="text-sm font-semibold">{foundersQuote.attribution}</span>
-        {!foundersQuote.confirmed && <span class="mt-2 text-[9px] font-semibold uppercase tracking-[0.13em] text-accent">Cita pendiente de confirmación</span>}
-      </footer>
-    </blockquote>
   </div>
 </section>
