@@ -5,8 +5,8 @@ import { AttributesCarousel } from './AttributesCarousel';
 
 const { data } = await getEntry('landing', '05-why-us');
 ---
-<section class="gsap-section bg-background-alt px-6 py-20 md:px-16 md:py-24" data-section="why-us">
-  <div class="mx-auto max-w-6xl">
+<section class="gsap-section overflow-hidden bg-background py-20 md:py-32" data-section="why-us">
+  <div class="section-shell">
     <!-- El h2 lo renderiza el carrusel: comparte fila con las flechas. -->
     <AttributesCarousel attributes={attributes} headline={data.headline} client:visible />
   </div>
