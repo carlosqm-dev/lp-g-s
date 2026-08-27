@@ -1,14 +1,107 @@
 @import "tailwindcss";
 @import "./theme.css";
 
-/* Utilidades globales minimas. La mayoria del estilo vive en clases de
-   Tailwind directamente en los componentes .astro / .tsx. */
+:root {
+  color-scheme: light;
+}
 
-/* Los accesos del header son anclas: el scroll suave y el offset evitan
-   que el header fijo tape el titulo de la seccion de destino. */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 6rem;
+  scroll-padding-top: 7rem;
+  overflow-x: clip;
+  background: var(--color-primary);
+}
+
+body {
+  min-width: 320px;
+  overflow-x: clip;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--color-primary) 5%, transparent) 1px, transparent 1px),
+    var(--color-background);
+  background-size: 5rem 100%;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-primary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+.section-shell {
+  width: min(100% - 2rem, 80rem);
+  margin-inline: auto;
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.section-kicker::before {
+  content: '';
+  width: 1.75rem;
+  height: 2px;
+  background: currentColor;
+}
+
+.display-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+
+.industrial-grid {
+  background-image:
+    linear-gradient(color-mix(in srgb, currentColor 10%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, currentColor 10%, transparent) 1px, transparent 1px);
+  background-size: 3rem 3rem;
+}
+
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px currentColor;
+}
+
+.clip-corner {
+  clip-path: polygon(0 0, calc(100% - 2rem) 0, 100% 2rem, 100% 100%, 0 100%);
+}
+
+.marquee-track {
+  width: max-content;
+  animation: marquee 24s linear infinite;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (min-width: 768px) {
+  .section-shell {
+    width: min(100% - 5rem, 80rem);
+  }
+}
+
+@media (min-width: 1280px) {
+  body {
+    background-size: 7.5rem 100%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -17,5 +110,9 @@ html {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .marquee-track {
+    animation: none;
   }
 }

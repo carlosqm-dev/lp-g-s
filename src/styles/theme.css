@@ -1,19 +1,19 @@
 @theme {
   --color-primary: #002A41;
   --color-primary-foreground: #FFFFFF;
-  --color-secondary: #335567;
+  --color-secondary: #315568;
   --color-secondary-foreground: #FFFFFF;
   --color-accent: #94C23D;
   --color-accent-foreground: #002A41;
-  --color-background: #FFFFFF;
-  --color-background-alt: #EBEEF0;
+  --color-background: #F3F1EA;
+  --color-background-alt: #DDE3E1;
   --color-text: #002A41;
   --color-ring: #94C23D;
-  --color-input: #EBEEF0;
+  --color-input: #DDE3E1;
   --color-destructive: #B3261E;
   --color-destructive-foreground: #FFFFFF;
-  --font-heading: Poppins, 'Helvetica Neue', Arial, sans-serif;
-  --font-body: Lato, 'Helvetica Neue', Arial, sans-serif;
+  --font-heading: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-body: 'IBM Plex Sans', 'Helvetica Neue', sans-serif;
   --spacing-0: 4px;
   --spacing-1: 8px;
   --spacing-2: 12px;
@@ -23,9 +23,9 @@
   --spacing-6: 48px;
   --spacing-7: 64px;
   --spacing-8: 96px;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
+  --radius-sm: 2px;
+  --radius-md: 6px;
+  --radius-lg: 12px;
   --duration-fast: 150ms;
   --duration-base: 300ms;
   --duration-slow: 600ms;
