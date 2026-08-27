@@ -17,6 +17,12 @@ const { data } = await getEntry('landing', '08-history');
       <div class="history-visual industrial-grid relative min-h-[27rem] overflow-hidden bg-primary text-background md:min-h-[38rem]">
         <div aria-hidden="true" class="absolute inset-[12%] border border-background/20"></div>
         <div aria-hidden="true" class="absolute left-1/2 top-1/2 h-[65%] w-px -translate-x-1/2 -translate-y-1/2 rotate-[28deg] bg-accent/60"></div>
+        <img
+          src="/brand/isotipo-white.png"
+          alt=""
+          aria-hidden="true"
+          class="pointer-events-none absolute left-1/2 top-[46%] h-auto w-[55%] -translate-x-1/2 -translate-y-1/2 object-contain opacity-[0.11]"
+        />
         <div class="absolute inset-x-5 top-5 flex justify-between text-[9px] font-semibold uppercase tracking-[0.16em] text-background/45">
           <span>Empresa familiar</span><span>20+ años</span>
         </div>
@@ -28,16 +34,13 @@ const { data } = await getEntry('landing', '08-history');
 
       <div class="bg-background p-5 md:p-8">
         <div class="history-track border-t border-primary/20">
-          {milestones.map((milestone, index) => (
-            <article class="history-item grid grid-cols-[3rem_1fr] gap-4 border-b border-primary/20 py-6 md:grid-cols-[4.5rem_1fr]">
-              <span class={`font-heading text-2xl font-bold ${milestone.isCurrent ? 'text-accent' : 'text-primary/25'}`}>0{index + 1}</span>
-              <div>
-                <div class="flex flex-wrap items-center gap-2 text-[9px] font-semibold uppercase tracking-[0.14em] text-secondary">
-                  {milestone.eyebrow}
-                  {!milestone.dateConfirmed && <span class="border border-primary/20 px-1.5 py-0.5 text-[8px]">Fecha por confirmar</span>}
-                </div>
-                <p class="mt-2 max-w-[44ch] text-sm leading-relaxed text-secondary">{milestone.description}</p>
+          {milestones.map((milestone) => (
+            <article class="history-item border-b border-primary/20 py-6">
+              <div class="flex flex-wrap items-center gap-2 text-[9px] font-semibold uppercase tracking-[0.14em] text-secondary">
+                {milestone.eyebrow}
+                {!milestone.dateConfirmed && <span class="border border-primary/20 px-1.5 py-0.5 text-[8px]">Fecha por confirmar</span>}
               </div>
+              <p class="mt-2 max-w-[44ch] text-sm leading-relaxed text-secondary">{milestone.description}</p>
             </article>
           ))}
         </div>

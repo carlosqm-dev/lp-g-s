@@ -29,17 +29,14 @@ export function WhatWeDoCards({ services }: { services: Service[] }) {
                   : `linear-gradient(${index === 0 ? '125deg' : '155deg'}, transparent 28%, rgba(148,194,61,.24) 28.2%, transparent 28.5%, transparent 45%, rgba(243,241,234,.18) 45.2%, transparent 45.5%)`,
             }}
           />
-          <div className="relative flex items-start justify-between border-b border-background/20 pb-4 text-[10px] font-semibold uppercase tracking-[0.16em] text-background/55">
-            <span>Servicio / 0{index + 1}</span>
+          <div className="relative flex items-start justify-end border-b border-background/20 pb-4 text-[10px] font-semibold uppercase tracking-[0.16em] text-background/55">
             <span>{visualLabels[index]}</span>
           </div>
 
           <div aria-hidden="true" className="relative my-auto flex items-center justify-center py-4">
-            <span className="font-heading text-[7rem] font-bold leading-none text-transparent [-webkit-text-stroke:1px_rgba(243,241,234,.2)] md:text-[9rem]">
-              0{index + 1}
-            </span>
+            <span className="absolute h-24 w-24 rotate-12 border border-background/15 transition-transform duration-500 group-hover:-rotate-6 md:h-32 md:w-32"></span>
             <span className="absolute h-16 w-16 border border-accent/70 transition-transform duration-500 group-hover:rotate-45 group-hover:scale-110 md:h-20 md:w-20"></span>
-            <span className="absolute h-2 w-2 bg-accent"></span>
+            <span className="h-2 w-2 bg-accent"></span>
           </div>
 
           <div className="relative border-t border-background/20 pt-5">

@@ -6,10 +6,15 @@ const { data } = await getEntry('landing', '09-final-cta');
 ---
 <section id="contacto" class="gsap-section overflow-hidden bg-accent py-20 text-primary md:py-28" data-section="final-cta">
   <div class="section-shell">
-    <div class="flex items-center justify-between border-y border-primary/25 py-3 text-[9px] font-semibold uppercase tracking-[0.16em] text-primary/60">
-      <span>Origen / tu operación</span><span>Destino / a tiempo</span>
+    <div class="relative isolate">
+      <img
+        src="/brand/isotipo-black.png"
+        alt=""
+        aria-hidden="true"
+        class="pointer-events-none absolute left-[18%] top-1/2 -z-10 h-auto w-[min(72vw,34rem)] -translate-x-1/2 -translate-y-1/2 object-contain opacity-[0.055] md:left-[20%]"
+      />
+      <h2 class="display-title mx-auto whitespace-pre text-center text-[clamp(1.62rem,8.2vw,6.8rem)]">{data.headline}</h2>
     </div>
-    <h2 class="display-title mx-auto mt-10 max-w-[13ch] text-center text-[clamp(4rem,12vw,9rem)]">{data.headline}</h2>
     {data.subheadline && <p class="mx-auto mt-6 max-w-[44ch] text-center text-sm leading-relaxed text-primary/70 md:text-base">{data.subheadline}</p>}
     {data.cta_label && (
       <div class="mt-9 flex justify-center">
@@ -17,7 +22,7 @@ const { data } = await getEntry('landing', '09-final-cta');
           href={contact.whatsappHref}
           target="_blank"
           rel="noopener noreferrer"
-          class="group inline-flex min-h-14 items-center gap-7 bg-primary px-6 font-semibold text-background transition-base hover:-translate-y-1 md:px-9"
+          class="group inline-flex min-h-14 items-center gap-7 whitespace-nowrap bg-primary px-6 font-semibold text-background transition-base hover:-translate-y-1 md:px-9"
         >
           {data.cta_label}<span aria-hidden="true" class="text-2xl text-accent transition-transform group-hover:translate-x-1">↗</span>
         </a>

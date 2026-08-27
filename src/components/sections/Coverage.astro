@@ -13,14 +13,11 @@ const { data } = await getEntry('landing', '04-coverage');
         <h2 class="display-title max-w-[8ch] text-6xl md:text-7xl lg:text-[clamp(4.5rem,6vw,6.5rem)]">{data.headline}</h2>
         {data.subheadline && <p class="mt-4 max-w-[42ch] text-sm leading-relaxed text-secondary md:text-base">{data.subheadline}</p>}
         <div class="mt-6 border-t border-primary/20">
-          {coverageCores.map((core, index) => (
-            <div class="coverage-item grid grid-cols-[2.5rem_1fr] gap-3 border-b border-primary/20 py-4 lg:grid-cols-[2.25rem_1fr] lg:gap-2.5 lg:py-3.5">
-              <span class={`font-heading text-xl font-bold ${core.variant === 'on-demand' ? 'text-secondary/50' : 'text-accent'}`}>0{index + 1}</span>
-              <div>
-                <div class="text-[10px] font-semibold uppercase tracking-[0.16em] text-secondary">{core.eyebrow}</div>
-                <h3 class="mt-1 font-heading text-xl font-semibold uppercase leading-none md:text-2xl">{core.title}</h3>
-                <p class="mt-1.5 text-sm leading-relaxed text-secondary">{core.description}</p>
-              </div>
+          {coverageCores.map((core) => (
+            <div class="coverage-item border-b border-primary/20 py-4 lg:py-3.5">
+              <div class="text-[10px] font-semibold uppercase tracking-[0.16em] text-secondary">{core.eyebrow}</div>
+              <h3 class="mt-1 font-heading text-xl font-semibold uppercase leading-none md:text-2xl">{core.title}</h3>
+              <p class="mt-1.5 text-sm leading-relaxed text-secondary">{core.description}</p>
             </div>
           ))}
         </div>

@@ -7,11 +7,9 @@ const { data } = await getEntry('landing', '03-what-we-do');
 ---
 <section id="que-hacemos" class="gsap-section bg-background py-20 md:py-32" data-section="what-we-do">
   <div class="section-shell">
-    <div class="grid gap-6 border-b border-primary/20 pb-8 md:grid-cols-[1fr_1.35fr] md:items-end">
-      <div>
-        <h2 class="display-title text-6xl md:text-8xl">{data.headline}</h2>
-      </div>
-      {data.subheadline && <p class="max-w-[48ch] text-sm leading-relaxed text-secondary md:justify-self-end md:text-base">{data.subheadline}</p>}
+    <div class="border-b border-primary/20 pb-8">
+      <h2 class="display-title text-6xl md:text-8xl">{data.headline}</h2>
+      {data.subheadline && <p class="mt-5 max-w-[48ch] text-sm leading-relaxed text-secondary md:text-base">{data.subheadline}</p>}
     </div>
     <div class="mt-8 md:mt-12">
       <WhatWeDoCards services={services} client:visible />

@@ -12,13 +12,13 @@ import { navLinks } from '../../data/nav';
       <div class="bg-[#001c2c] p-5 md:p-7">
         <h3 class="mb-5 text-[9px] font-semibold uppercase tracking-[0.16em] text-accent">Manifiesto / navegación</h3>
         <nav aria-label="Footer" class="border-t border-background/15">
-          {navLinks.map((link, index) => (
-            <a href={link.href} class="flex items-center justify-between border-b border-background/15 py-3 transition-colors hover:text-accent">
-              <span>{link.label}</span><span class="font-heading text-xs text-background/30">0{index + 1}</span>
+          {navLinks.map((link) => (
+            <a href={link.href} class="block border-b border-background/15 py-3 transition-colors hover:text-accent">
+              {link.label}
             </a>
           ))}
-          <a href="#contacto" class="flex items-center justify-between border-b border-background/15 py-3 transition-colors hover:text-accent">
-            <span>Contacto</span><span class="font-heading text-xs text-background/30">05</span>
+          <a href="#contacto" class="block border-b border-background/15 py-3 transition-colors hover:text-accent">
+            Contacto
           </a>
         </nav>
       </div>

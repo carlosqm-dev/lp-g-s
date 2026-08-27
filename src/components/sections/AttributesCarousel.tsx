@@ -46,20 +46,18 @@ export function AttributesCarousel({ attributes, headline }: { attributes: Attri
       <CarouselContent className="py-8 md:py-12">
         {attributes.map((attr, index) => {
           const isActive = index === selected;
+          const hasLongContent = attr.icon === 'precio';
           return (
             <CarouselItem key={attr.title} className="basis-[88%] md:basis-1/2 xl:basis-1/3">
               <article
                 aria-current={isActive}
-                className={`relative flex min-h-[25rem] flex-col border p-5 transition-all duration-500 md:min-h-[29rem] md:p-7 ${
+                className={`relative flex h-[25rem] flex-col border p-5 transition-all duration-500 md:h-[29rem] md:p-7 ${
                   isActive
                     ? 'border-primary bg-primary text-background'
                     : 'border-primary/20 bg-background-alt text-primary opacity-60'
                 }`}
               >
-                <div className="flex items-start justify-between">
-                  <span className={`font-heading text-6xl font-bold leading-none ${isActive ? 'text-accent' : 'text-primary/20'}`}>
-                    0{index + 1}
-                  </span>
+                <div className={`flex items-center justify-center ${hasLongContent ? 'pt-1 md:pt-2' : 'pt-3 md:pt-5'}`}>
                   <img
                     src={`/icons/${attr.icon}.webp`}
                     alt=""
@@ -68,12 +66,12 @@ export function AttributesCarousel({ attributes, headline }: { attributes: Attri
                     height={72}
                     loading="lazy"
                     decoding="async"
-                    className={`h-14 w-14 md:h-16 md:w-16 ${isActive ? 'brightness-0 invert' : ''}`}
+                    className={`object-contain ${hasLongContent ? 'h-20 w-20 md:h-24 md:w-24' : 'h-24 w-24 md:h-28 md:w-28'}`}
                   />
                 </div>
-                <div className="mt-auto border-t border-current/20 pt-5">
-                  <h3 className="max-w-[12ch] font-heading text-4xl font-semibold uppercase leading-[0.92] md:text-5xl">{attr.title}</h3>
-                  <p className={`mt-4 max-w-sm text-sm leading-relaxed ${isActive ? 'text-background/65' : 'text-secondary'}`}>
+                <div className={`mt-auto border-t border-current/20 ${hasLongContent ? 'pt-4' : 'pt-5'}`}>
+                  <h3 className={`max-w-[12ch] font-heading font-semibold uppercase leading-[0.92] ${hasLongContent ? 'text-3xl md:text-4xl' : 'text-4xl md:text-5xl'}`}>{attr.title}</h3>
+                  <p className={`max-w-sm leading-relaxed ${hasLongContent ? 'mt-3 text-[13px]' : 'mt-4 text-sm'} ${isActive ? 'text-background/65' : 'text-secondary'}`}>
                     {attr.description}
                   </p>
                 </div>
@@ -91,7 +89,7 @@ export function AttributesCarousel({ attributes, headline }: { attributes: Attri
               key={index}
               type="button"
               onClick={() => api?.scrollTo(index)}
-              aria-label={`Ir al atributo ${index + 1}`}
+              aria-label={`Ir a ${attributes[index]?.title ?? 'atributo'}`}
               aria-current={index === selected}
               className={`h-2 min-w-2 transition-all duration-300 ${index === selected ? 'w-10 bg-accent' : 'bg-primary/20 hover:bg-primary/40'}`}
             />

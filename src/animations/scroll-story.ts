@@ -115,23 +115,6 @@ if (!reducedMotion) {
 
   const process = document.querySelector<HTMLElement>('[data-section="how-it-works"]');
   if (process) {
-    const media = gsap.matchMedia();
-    media.add('(max-width: 767px)', () => {
-      gsap.from(process.querySelector('.process-line'), {
-        scaleY: 0,
-        duration: 1.2,
-        ease: 'power2.inOut',
-        scrollTrigger: { trigger: process, start: 'top 65%', once: true },
-      });
-    });
-    media.add('(min-width: 768px)', () => {
-      gsap.from(process.querySelector('.process-line'), {
-        scaleX: 0,
-        duration: 1.2,
-        ease: 'power2.inOut',
-        scrollTrigger: { trigger: process, start: 'top 65%', once: true },
-      });
-    });
     gsap.from(process.querySelectorAll('.process-step'), {
       yPercent: 16,
       opacity: 0,
