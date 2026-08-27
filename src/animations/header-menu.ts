@@ -33,7 +33,7 @@ if (header && toggle && menu) {
 
   // Si el viewport pasa a escritorio con el menu abierto, se limpia el
   // estado para no dejar el body bloqueado.
-  const desktop = window.matchMedia('(min-width: 768px)');
+  const desktop = window.matchMedia('(min-width: 1024px)');
   desktop.addEventListener('change', (event) => {
     if (event.matches && isOpen()) setOpen(false);
   });

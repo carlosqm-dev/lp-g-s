@@ -14,16 +14,16 @@ import { navLinks } from '../../data/nav';
 ---
 <header
   id="site-header"
-  class="fixed inset-x-0 top-0 z-50 border border-transparent transition-all duration-300"
+  class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
 >
   <!-- A diferencia de las secciones, el header no se acota a max-w-6xl:
        ocupa todo el ancho para que los accesos arranquen pegados al borde
        y quede aire entre ellos y el logo centrado. -->
-  <div class="grid grid-cols-[1fr_auto_1fr] items-center px-6 py-4 md:px-10">
+  <div class="grid grid-cols-[1fr_auto_1fr] items-center px-4 py-4 md:px-10 md:py-5">
     <button
       id="menu-toggle"
       type="button"
-      class="menu-toggle -ml-2 flex h-10 w-10 items-center justify-center justify-self-start md:hidden"
+      class="menu-toggle flex h-11 w-11 items-center justify-center justify-self-start rounded-full lg:hidden"
       aria-label="Abrir menú"
       aria-expanded="false"
       aria-controls="mobile-menu"
@@ -35,9 +35,9 @@ import { navLinks } from '../../data/nav';
       </span>
     </button>
 
-    <nav class="header-nav hidden items-center gap-6 justify-self-start md:flex" aria-label="Principal">
+    <nav class="header-nav hidden items-center gap-6 justify-self-start lg:flex" aria-label="Principal">
       {navLinks.map((link) => (
-        <a href={link.href} class="header-nav-link relative text-sm font-bold transition-colors duration-300">
+        <a href={link.href} class="header-nav-link relative text-xs font-semibold uppercase tracking-[0.08em] transition-colors duration-300">
           {link.label}
         </a>
       ))}
@@ -46,11 +46,11 @@ import { navLinks } from '../../data/nav';
     <!-- Una sola version blanca de cada logo: el header es oscuro tanto
          sobre el Hero como en glass, asi que ya no hace falta el par
          blanco/negro con crossfade. -->
-    <a href="#hero" class="block h-11 w-11 justify-self-center md:hidden" aria-label="G&S Conexiones Estratégicas — inicio">
+    <a href="#hero" class="block h-10 w-10 justify-self-center lg:hidden" aria-label="G&S Conexiones Estratégicas — inicio">
       <img src="/brand/isotipo-white.png" alt="" aria-hidden="true" class="h-full w-full object-contain" />
     </a>
 
-    <a href="#hero" class="hidden aspect-[640/312] justify-self-center md:block md:h-14">
+    <a href="#hero" class="hidden aspect-[640/312] justify-self-center lg:block lg:h-12">
       <img
         src="/brand/logo-horizontal-white.png"
         alt="G&S Conexiones Estratégicas"
@@ -62,20 +62,22 @@ import { navLinks } from '../../data/nav';
       href={contact.whatsappHref}
       target="_blank"
       rel="noopener noreferrer"
-      class="justify-self-end rounded-full bg-accent px-5 py-2 text-sm font-bold text-primary transition-base hover:opacity-90"
+      aria-label="Contactar por WhatsApp"
+      class="group inline-flex min-h-11 items-center gap-2 justify-self-end bg-accent px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-primary transition-base hover:-translate-y-0.5 md:px-5"
     >
-      Contacto
+      <span class="hidden sm:inline">Contacto</span>
+      <svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
     </a>
   </div>
 
   <div
     id="mobile-menu"
-    class="mobile-menu absolute inset-x-4 top-full flex flex-col rounded-3xl border px-6 py-3 md:hidden"
+    class="mobile-menu absolute inset-x-4 top-full flex flex-col border px-5 py-3 lg:hidden"
   >
     <nav class="flex flex-col" aria-label="Menú móvil">
       {navLinks.map((link) => (
-        <a href={link.href} class="mobile-menu-link py-4 text-xl text-background/90 transition-colors duration-200">
-          {link.label}
+        <a href={link.href} class="mobile-menu-link flex items-center justify-between border-b border-background/15 py-4 font-heading text-2xl uppercase text-background/90 transition-colors duration-200">
+          {link.label}<span aria-hidden="true" class="text-accent">↗</span>
         </a>
       ))}
     </nav>
@@ -112,9 +114,8 @@ import { navLinks } from '../../data/nav';
   #site-header.is-scrolled {
     /* El margen despega la barra de los bordes para que se lea como una
        pastilla flotante; el radio grande la cierra por completo. */
-    margin: 0.75rem 1rem;
-    border-radius: 9999px;
-    background-color: color-mix(in srgb, var(--color-primary) 55%, transparent);
+    margin: 0.65rem 0.75rem;
+    background-color: color-mix(in srgb, var(--color-primary) 82%, transparent);
     border-color: color-mix(in srgb, var(--color-background) 22%, transparent);
     -webkit-backdrop-filter: blur(24px) saturate(180%);
     backdrop-filter: blur(24px) saturate(180%);
@@ -128,6 +129,11 @@ import { navLinks } from '../../data/nav';
      invertirlos. */
   .menu-toggle {
     color: var(--color-background);
+  }
+
+  .menu-toggle:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-accent);
   }
 
   /* --- Boton hamburguesa: 3 barras que se cruzan en X al abrir --- */
@@ -167,17 +173,13 @@ import { navLinks } from '../../data/nav';
     transform: translateY(-6px) rotate(-45deg);
   }
 
-  /* --- Tarjeta flotante de navegacion (mobile), navy en liquid glass ---
-     El navy translucido deja pasar el fondo; el blur + saturate lo funden
-     y el borde/highlight superior simulan el canto de vidrio. */
+  /* --- Tarjeta flotante de navegacion (mobile), navy solido --- */
   .mobile-menu {
-    border-color: color-mix(in srgb, var(--color-background) 22%, transparent);
-    background-color: color-mix(in srgb, var(--color-primary) 55%, transparent);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-    backdrop-filter: blur(24px) saturate(180%);
-    box-shadow:
-      0 24px 48px -12px color-mix(in srgb, var(--color-primary) 45%, transparent),
-      inset 0 1px 0 color-mix(in srgb, var(--color-background) 28%, transparent);
+    border-color: transparent;
+    background-color: var(--color-primary);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-0.5rem);
@@ -195,5 +197,16 @@ import { navLinks } from '../../data/nav';
 
   .mobile-menu-link:active {
     color: var(--color-accent);
+  }
+
+  #site-header.is-hidden {
+    transform: translateY(-140%);
+    pointer-events: none;
+  }
+
+  @media (min-width: 768px) {
+    #site-header.is-scrolled {
+      margin: 0.75rem 1.25rem;
+    }
   }
 </style>
