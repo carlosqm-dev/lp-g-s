@@ -5,6 +5,6 @@ export interface Stat {
 
 export const stats: Stat[] = [
   { value: '20+', label: 'Años de trayectoria' },
-  { value: '2.500 t', label: 'Botellas PET transportadas al mes' },
+  { value: '2.500 t', label: 'Toneladas de PET transportadas al mes' },
   { value: '10+', label: 'Ciudades con cobertura nacional bajo demanda' },
 ];

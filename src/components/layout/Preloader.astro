@@ -5,32 +5,31 @@
 ---
 <div
   id="preloader"
-  class="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-2 bg-white"
+  class="industrial-grid fixed inset-0 z-[100] flex flex-col items-center justify-center gap-5 bg-primary text-background"
   aria-hidden="true"
 >
   <img
-    src="/brand/logo-horizontal.png"
+    src="/brand/logo-horizontal-white.png"
     alt="G&S Conexiones Estratégicas"
-    class="h-16 w-auto md:h-20"
+    class="h-14 w-auto md:h-20"
   />
-  <p class="preloader-text font-heading text-xl font-medium text-primary md:text-2xl">
-    Cargando...
-  </p>
+  <div class="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-background/60">
+    <span>Origen</span>
+    <span class="preloader-line h-px w-20 bg-accent"></span>
+    <span>Destino</span>
+  </div>
 </div>
 
 <style>
-  .preloader-text {
-    animation: preloader-pulse 1.2s ease-in-out infinite;
+  .preloader-line {
+    transform-origin: left;
+    animation: preloader-progress 1.2s ease-in-out infinite;
   }
 
-  @keyframes preloader-pulse {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.4;
-    }
+  @keyframes preloader-progress {
+    0% { transform: scaleX(0.08); opacity: 0.45; }
+    55% { transform: scaleX(1); opacity: 1; }
+    100% { transform: scaleX(1); opacity: 0; transform-origin: right; }
   }
 
   #preloader {
@@ -41,7 +40,7 @@
   }
 
   #preloader.is-leaving {
-    clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
     transform: translateY(-110%);
     pointer-events: none;
   }

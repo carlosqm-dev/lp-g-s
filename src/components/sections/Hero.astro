@@ -3,34 +3,62 @@ import { getEntry } from 'astro:content';
 import { contact } from '../../data/contact';
 
 const { data } = await getEntry('landing', '01-hero');
+const [headlineLead, headlineTail] = data.headline.split(', ');
 ---
 <section
   id="hero"
-  class="relative flex min-h-dvh flex-col justify-end overflow-hidden bg-primary px-6 pb-16 pt-32 text-background md:px-16 md:pb-24"
+  class="industrial-grid relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-primary pb-8 pt-28 text-background md:min-h-dvh md:pb-12 md:pt-36"
   data-section="hero"
 >
-  <!-- Foto real del camion pendiente (ver assets/images/shot-list.md).
-       Cuando llegue: reemplazar este div por
-       <img src="/images/hero/camion.jpg" alt="..." fetchpriority="high"
-       class="absolute inset-0 -z-20 h-full w-full object-cover" /> —
-       sin loading="lazy", es la candidata a LCP del sitio. -->
   <div class="absolute inset-0 -z-20 bg-primary"></div>
-  <div class="absolute inset-0 -z-10 bg-gradient-to-t from-primary via-primary/60 to-primary/10"></div>
+  <div class="hero-beam absolute -right-[28%] top-[10%] -z-10 h-[70%] w-[86%] rotate-[-9deg] border border-background/15 bg-[linear-gradient(120deg,rgba(148,194,61,.04),rgba(148,194,61,.22))] md:right-[-8%] md:top-[5%] md:w-[62%]"></div>
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_70%_40%,rgba(148,194,61,.14),transparent_30%),linear-gradient(to_top,rgba(0,42,65,.98),rgba(0,42,65,.18))]"></div>
+  <div aria-hidden="true" class="route-streaks absolute inset-y-0 right-0 -z-10 w-1/2 opacity-35">
+    <span></span><span></span><span></span>
+  </div>
 
-  <div class="max-w-xl">
-    <h1 class="hero-reveal-item font-heading text-3xl leading-tight md:text-4xl">{data.headline}</h1>
-    {data.subheadline && (
-      <p class="hero-reveal-item mt-3 max-w-[46ch] text-base text-background/80 md:text-lg">{data.subheadline}</p>
-    )}
-    {data.cta_label && (
-      <a
-        href={contact.whatsappHref}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="hero-reveal-item mt-5 inline-flex items-center rounded-full bg-accent px-7 py-3 font-heading font-semibold text-primary transition-base hover:opacity-90"
-      >
-        {data.cta_label}
-      </a>
-    )}
+  <div class="section-shell">
+    <div class="hero-reveal-item mb-5 flex items-center justify-between border-y border-background/20 py-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-background/60 md:text-xs">
+      <span>Transporte de carga</span><span>Antioquia · Colombia</span>
+    </div>
+    <div class="md:grid md:grid-cols-[minmax(0,1fr)_13rem] md:items-end md:gap-8 lg:grid-cols-[1.45fr_0.55fr]">
+      <h1 class="display-title max-w-[12ch] text-[clamp(3.75rem,17vw,7rem)] md:max-w-[10ch] md:text-[clamp(6rem,10vw,10rem)]">
+        <span class="hero-reveal-item block">{headlineLead}</span>
+        {headlineTail && <span class="hero-reveal-item block pl-[0.18em] text-accent md:pl-[0.42em]">{headlineTail}</span>}
+      </h1>
+      <div class="hero-reveal-item mt-5 border-t border-background/20 pt-5 md:mb-2 md:mt-0">
+        {data.subheadline && <p class="max-w-[42ch] text-sm leading-relaxed text-background/75 md:text-base">{data.subheadline}</p>}
+        <div class="mt-6 flex flex-col items-start gap-5">
+          {data.cta_label && (
+            <a
+              href={contact.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group inline-flex min-h-12 items-center gap-5 bg-accent px-5 text-sm font-semibold text-primary transition-base hover:-translate-y-1 md:min-h-14 md:w-full md:justify-between md:px-4 lg:w-auto lg:justify-start lg:whitespace-nowrap lg:px-7"
+            >
+              {data.cta_label}<span aria-hidden="true" class="text-xl transition-transform group-hover:translate-x-1">↗</span>
+            </a>
+          )}
+          <a href="#que-hacemos" class="hidden items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-background/60 md:flex">
+            Explora la operación <span class="flex h-10 w-10 items-center justify-center border border-background/25">↓</span>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+
+<style>
+  .route-streaks span {
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    display: block;
+    width: 120%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+    transform: rotate(-38deg);
+  }
+  .route-streaks span:nth-child(2) { top: 55%; right: -5%; }
+  .route-streaks span:nth-child(3) { top: 60%; right: -18%; }
+</style>

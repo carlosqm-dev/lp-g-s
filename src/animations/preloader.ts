@@ -26,7 +26,7 @@ if (!preloader || prefersReducedMotion) {
   // no lo toca; el ocultamiento inicial vive acá.
   gsap.set(heroItems, { opacity: 0, y: 24 });
 
-  const DURATION = 1.8;
+  const DURATION = 1.15;
 
   const finish = () => {
     preloader.classList.add('is-leaving');
