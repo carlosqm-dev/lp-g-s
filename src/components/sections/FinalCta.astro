@@ -4,22 +4,24 @@ import { contact } from '../../data/contact';
 
 const { data } = await getEntry('landing', '09-final-cta');
 ---
-<section id="contacto" class="gsap-section bg-primary px-6 py-24 text-center text-background md:px-16" data-section="final-cta">
-  <h2 class="mx-auto max-w-2xl font-heading text-3xl text-background md:text-4xl">{data.headline}</h2>
-  {data.subheadline && <p class="mt-4 text-background/80">{data.subheadline}</p>}
-  {data.cta_label && (
-    <a
-      href={contact.whatsappHref}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="mt-8 inline-flex items-center gap-2 rounded-full border-2 border-background px-9 py-4 font-heading text-lg text-background transition-base hover:bg-background hover:text-primary"
-    >
-      {data.cta_label}
-      {!contact.whatsappNumber && (
-        <span class="ml-1 inline-block rounded bg-[#fff3cd] px-1.5 py-0.5 align-middle text-[11px] font-body font-normal text-[#664d03]">
-          número a confirmar
-        </span>
-      )}
-    </a>
-  )}
+<section id="contacto" class="gsap-section overflow-hidden bg-accent py-20 text-primary md:py-28" data-section="final-cta">
+  <div class="section-shell">
+    <div class="flex items-center justify-between border-y border-primary/25 py-3 text-[9px] font-semibold uppercase tracking-[0.16em] text-primary/60">
+      <span>Origen / tu operación</span><span>Destino / a tiempo</span>
+    </div>
+    <h2 class="display-title mx-auto mt-10 max-w-[13ch] text-center text-[clamp(4rem,12vw,9rem)]">{data.headline}</h2>
+    {data.subheadline && <p class="mx-auto mt-6 max-w-[44ch] text-center text-sm leading-relaxed text-primary/70 md:text-base">{data.subheadline}</p>}
+    {data.cta_label && (
+      <div class="mt-9 flex justify-center">
+        <a
+          href={contact.whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group inline-flex min-h-14 items-center gap-7 bg-primary px-6 font-semibold text-background transition-base hover:-translate-y-1 md:px-9"
+        >
+          {data.cta_label}<span aria-hidden="true" class="text-2xl text-accent transition-transform group-hover:translate-x-1">↗</span>
+        </a>
+      </div>
+    )}
+  </div>
 </section>
