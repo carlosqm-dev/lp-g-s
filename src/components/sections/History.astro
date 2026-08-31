@@ -15,7 +15,7 @@ const { data } = await getEntry('landing', '08-history');
 
     <div class="mt-10 grid gap-px bg-primary/20 lg:grid-cols-[0.9fr_1.1fr]">
       <div class="flex flex-col gap-px bg-primary/20">
-        <div class="history-visual relative isolate min-h-[27rem] overflow-hidden bg-primary text-background md:min-h-[38rem]">
+        <div class="history-visual relative isolate min-h-[27rem] overflow-hidden rounded-xl bg-primary text-background md:min-h-[38rem]">
           <img
             src="/images/historia/fundadores-conceptual.webp"
             alt="Imagen conceptual de un padre y su hijo trabajando juntos junto a un camión"
@@ -28,10 +28,10 @@ const { data } = await getEntry('landing', '08-history');
           <div aria-hidden="true" class="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(0,42,65,.94),rgba(0,42,65,.08)_68%)]"></div>
           <p class="absolute inset-x-5 bottom-5 max-w-[23ch] font-heading text-3xl font-semibold uppercase leading-[0.95] text-background md:text-4xl">Dos generaciones. Una misma ruta.</p>
         </div>
-        <blockquote class="bg-background-alt p-6 font-heading text-3xl font-semibold uppercase leading-[0.95] md:p-8 md:text-5xl">“{foundersQuote.text}”</blockquote>
+        <blockquote class="rounded-xl bg-background-alt p-6 font-heading text-3xl font-semibold uppercase leading-[0.95] md:p-8 md:text-5xl">“{foundersQuote.text}”</blockquote>
       </div>
 
-      <div class="bg-background p-5 md:p-8">
+      <div class="rounded-xl bg-background p-5 md:p-8">
         <div class="history-track border-t border-primary/20">
           {milestones.map((milestone) => (
             <article class="history-item border-b border-primary/20 py-6">

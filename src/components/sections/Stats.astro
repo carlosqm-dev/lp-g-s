@@ -11,7 +11,7 @@ const { data } = await getEntry('landing', '02-stats');
   <div class="section-shell border-x border-primary/20">
     <div class="grid grid-cols-1 divide-y divide-primary/20 md:grid-cols-3 md:divide-x md:divide-y-0">
       {stats.map((stat) => (
-        <div class="stat-panel relative px-5 py-9 md:px-7 md:py-12">
+        <div class="stat-panel relative rounded-xl px-5 py-9 md:px-7 md:py-12">
           <div class="stat-value font-heading text-6xl font-bold leading-none tracking-[-0.04em] md:text-7xl">{stat.value}</div>
           <div class="mt-3 max-w-[18ch] text-xs font-semibold uppercase leading-relaxed tracking-[0.08em] text-primary/70">{stat.label}</div>
         </div>

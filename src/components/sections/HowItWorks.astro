@@ -15,7 +15,7 @@ const { data } = await getEntry('landing', '07-how-it-works');
         href={contact.whatsappHref}
         target="_blank"
         rel="noopener noreferrer"
-        class="cta-lift inline-flex min-h-12 w-fit items-center justify-center bg-primary px-5 text-sm font-semibold text-background lg:shrink-0"
+        class="cta-lift inline-flex min-h-12 w-fit items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-background lg:shrink-0"
       >
         Empieza por WhatsApp
       </a>
@@ -24,8 +24,8 @@ const { data } = await getEntry('landing', '07-how-it-works');
     <div class="process-track mt-10 grid gap-12 md:mt-16 md:grid-cols-4 md:gap-6 lg:mt-10">
       {steps.map((step, index) => (
         <article class="process-step relative">
-          <div class="group relative flex min-h-[18rem] items-center justify-center border border-background/15 bg-primary p-6 text-center text-background motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out motion-safe:hover:-translate-y-1 md:min-h-[22rem] md:p-5">
-            <span aria-hidden="true" class="pointer-events-none absolute inset-3 overflow-hidden border border-accent/45 transition-colors duration-300 group-hover:border-background/45">
+          <div class="group relative flex min-h-[18rem] items-center justify-center rounded-xl border border-background/15 bg-primary p-6 text-center text-background motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out motion-safe:hover:-translate-y-1 md:min-h-[22rem] md:p-5">
+            <span aria-hidden="true" class="pointer-events-none absolute inset-3 overflow-hidden rounded-xl border border-accent/45 transition-colors duration-300 group-hover:border-background/45">
               <span class="absolute left-0 top-[-1px] h-px w-1/3 -translate-x-[120%] bg-background/90 opacity-0 motion-safe:transition-[transform,opacity] motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:translate-x-[400%] motion-safe:group-hover:opacity-100"></span>
             </span>
             <div class="relative z-10 flex flex-col items-center">

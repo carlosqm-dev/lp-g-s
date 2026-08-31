@@ -14,7 +14,7 @@ import { navLinks } from '../../data/nav';
 ---
 <header
   id="site-header"
-  class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+  class="fixed inset-x-0 top-0 z-50 rounded-xl transition-all duration-300"
 >
   <!-- A diferencia de las secciones, el header no se acota a max-w-6xl:
        ocupa todo el ancho para que los accesos arranquen pegados al borde
@@ -63,7 +63,7 @@ import { navLinks } from '../../data/nav';
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"
-      class="cta-lift inline-flex min-h-11 items-center justify-center justify-self-end bg-accent px-3 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-primary md:px-5"
+      class="cta-lift inline-flex min-h-11 items-center justify-center justify-self-end rounded-full bg-accent px-3 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-primary md:px-5"
     >
       Contacto
     </a>
@@ -71,7 +71,7 @@ import { navLinks } from '../../data/nav';
 
   <div
     id="mobile-menu"
-    class="mobile-menu absolute inset-x-4 top-full flex flex-col border px-5 py-3 lg:hidden"
+    class="mobile-menu absolute inset-x-4 top-full flex flex-col rounded-xl border px-5 py-3 lg:hidden"
   >
     <nav class="flex flex-col" aria-label="Menú móvil">
       {navLinks.map((link) => (

@@ -11,8 +11,8 @@ const { data } = await getEntry('landing', '06-impact');
       {data.subheadline && <p class="body-copy mx-auto mt-6 max-w-[58ch] text-background/70">{data.subheadline}</p>}
     </div>
 
-    <div class="mt-8 grid gap-px bg-background/15 lg:grid-cols-[1.2fr_0.8fr]">
-      <div class="impact-copy relative overflow-hidden bg-primary p-5 md:p-9">
+    <div class="mt-8 grid gap-px overflow-hidden rounded-xl bg-background/15 lg:grid-cols-[1.2fr_0.8fr]">
+      <div class="impact-copy relative overflow-hidden rounded-xl bg-primary p-5 md:p-9">
         <span aria-hidden="true" class="absolute -right-10 -top-14 font-heading text-[13rem] font-bold leading-none text-background/[0.035]">PET</span>
         <p class="relative max-w-[20ch] font-heading text-[clamp(2.25rem,5.2vw,4.5rem)] font-semibold uppercase leading-[0.92] tracking-[-0.03em]">
           {impactHighlight.before}<span class="text-accent">{impactHighlight.accent1}</span>{impactHighlight.middle}<span class="text-accent">{impactHighlight.accent2}</span>{impactHighlight.after}
@@ -22,7 +22,7 @@ const { data } = await getEntry('landing', '06-impact');
         </span>
       </div>
 
-      <div class="impact-visual relative min-h-[23rem] overflow-hidden bg-primary md:min-h-[32rem]">
+      <div class="impact-visual relative min-h-[23rem] overflow-hidden rounded-xl bg-primary md:min-h-[32rem]">
         <img
           src="/images/impact/pet-clasificacion.webp"
           alt="Imagen conceptual de botellas PET recuperadas avanzando por una línea de clasificación"
@@ -41,7 +41,7 @@ const { data } = await getEntry('landing', '06-impact');
 
     <div class="mt-px grid gap-px bg-background/15 md:grid-cols-2">
       {impactCards.map((card) => (
-        <article class="impact-card relative bg-primary p-5 md:p-7">
+        <article class="impact-card relative rounded-xl bg-primary p-5 md:p-7">
           <div class="flex items-start">
             <span class={`border px-2 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] ${card.tagVariant === 'confirmed' ? 'border-accent bg-accent text-primary' : 'border-accent/60 text-accent'}`}>{card.tag}</span>
           </div>

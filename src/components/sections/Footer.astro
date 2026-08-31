@@ -5,11 +5,11 @@ import { navLinks } from '../../data/nav';
 <footer class="industrial-grid bg-[#001c2c] py-14 text-sm text-background/65 md:py-20">
   <div class="section-shell">
     <div class="grid gap-px bg-background/15 md:grid-cols-[1.3fr_0.8fr_0.9fr]">
-      <div class="bg-[#001c2c] p-5 md:p-7">
+      <div class="rounded-xl bg-[#001c2c] p-5 md:p-7">
         <img src="/brand/logo-horizontal-white.png" alt="G&S Conexiones Estratégicas" class="h-10 w-auto" />
         <p class="mt-10 max-w-[18ch] font-heading text-3xl font-semibold uppercase leading-none text-background">Conectamos tu negocio, optimizamos tu camino.</p>
       </div>
-      <div class="bg-[#001c2c] p-5 md:p-7">
+      <div class="rounded-xl bg-[#001c2c] p-5 md:p-7">
         <h3 class="mb-5 text-[9px] font-semibold uppercase tracking-[0.16em] text-accent">Manifiesto / navegación</h3>
         <nav aria-label="Footer" class="border-t border-background/15">
           {navLinks.map((link) => (
@@ -22,13 +22,13 @@ import { navLinks } from '../../data/nav';
           </a>
         </nav>
       </div>
-      <div class="bg-[#001c2c] p-5 md:p-7">
+      <div class="rounded-xl bg-[#001c2c] p-5 md:p-7">
         <h3 class="mb-5 text-[9px] font-semibold uppercase tracking-[0.16em] text-accent">Punto de contacto</h3>
         <a href={contact.whatsappHref} target="_blank" rel="noopener noreferrer" class="block font-heading text-2xl font-semibold text-background transition-colors hover:text-accent">
           {contact.whatsappNumber}
         </a>
         <span class="mt-2 block">Antioquia, Colombia</span>
-        <a href="#hero" class="mt-12 inline-flex h-12 w-12 items-center justify-center border border-background/20 text-background transition-colors hover:border-accent hover:text-accent" aria-label="Volver al inicio">↑</a>
+        <a href="#hero" class="mt-12 inline-flex h-12 w-12 items-center justify-center rounded-full border border-background/20 text-background transition-colors hover:border-accent hover:text-accent" aria-label="Volver al inicio">↑</a>
       </div>
     </div>
     <div class="mt-8 flex flex-col gap-3 border-t border-background/15 pt-5 text-[9px] uppercase tracking-[0.14em] text-background/35 sm:flex-row sm:justify-between">

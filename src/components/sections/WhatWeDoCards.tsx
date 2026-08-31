@@ -5,11 +5,11 @@ export function WhatWeDoCards({ services }: { services: ServiceCard[] }) {
   const reduceMotion = useReducedMotion();
 
   return (
-    <div className="grid gap-px overflow-hidden border border-primary/20 bg-primary/20 md:grid-cols-3">
+    <div className="grid gap-px overflow-hidden rounded-xl border border-primary/20 bg-primary/20 md:grid-cols-3">
       {services.map((service) => (
         <motion.article
           key={service.title}
-          className="group relative flex min-h-[21rem] flex-col justify-end overflow-hidden bg-primary p-5 text-background md:min-h-[28rem] md:p-6"
+          className="group relative flex min-h-[21rem] flex-col justify-end overflow-hidden rounded-xl bg-primary p-5 text-background md:min-h-[28rem] md:p-6"
           whileHover={reduceMotion ? undefined : { y: -8 }}
           transition={{ duration: 0.25, ease: 'easeOut' }}
         >

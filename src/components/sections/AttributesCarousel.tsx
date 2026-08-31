@@ -57,7 +57,7 @@ export function AttributesCarousel({ attributes, headline }: { attributes: Attri
                 aria-label={isActive ? `${attr.title}, atributo seleccionado` : `Mostrar ${attr.title}`}
                 aria-current={isActive ? 'true' : undefined}
                 className={cn(
-                  'group block w-full origin-center cursor-pointer text-left transition-[transform,opacity] duration-500 ease-out focus-visible:outline-none',
+                  'group block w-full origin-center cursor-pointer rounded-full text-left transition-[transform,opacity] duration-500 ease-out focus-visible:outline-none',
                   isActive
                     ? 'relative z-10 opacity-100 md:-translate-y-[8px]'
                     : 'opacity-40 hover:opacity-70 md:translate-y-[8px] md:scale-[0.94]'
@@ -65,7 +65,7 @@ export function AttributesCarousel({ attributes, headline }: { attributes: Attri
               >
                 <span
                   className={cn(
-                    'flex h-[20rem] items-center justify-center border transition-[background-color,border-color,color,box-shadow] duration-500 sm:h-[22rem] md:h-[24rem]',
+                    'flex h-[20rem] items-center justify-center overflow-hidden rounded-xl border transition-[background-color,border-color,color,box-shadow] duration-500 sm:h-[22rem] md:h-[24rem]',
                     isActive
                       ? 'border-primary bg-primary text-background shadow-xl'
                       : 'border-primary/20 bg-background-alt text-primary group-hover:border-primary/40'
@@ -115,8 +115,8 @@ export function AttributesCarousel({ attributes, headline }: { attributes: Attri
       </CarouselContent>
 
       <div className="flex items-center justify-end gap-2 border-t border-primary/20 pt-4 md:hidden">
-        <CarouselPrevious className="static h-12 w-12 translate-y-0 rounded-none border-primary/20 bg-transparent shadow-none hover:bg-primary hover:text-background" />
-        <CarouselNext className="static h-12 w-12 translate-y-0 rounded-none border-primary/20 bg-transparent shadow-none hover:bg-primary hover:text-background" />
+        <CarouselPrevious className="static h-12 w-12 translate-y-0 rounded-full border-primary/20 bg-transparent shadow-none hover:bg-primary hover:text-background" />
+        <CarouselNext className="static h-12 w-12 translate-y-0 rounded-full border-primary/20 bg-transparent shadow-none hover:bg-primary hover:text-background" />
       </div>
     </Carousel>
   );
