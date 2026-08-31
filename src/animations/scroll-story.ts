@@ -64,6 +64,26 @@ if (!reducedMotion) {
     });
   }
 
+  const fleetReveal = document.querySelector<HTMLElement>('[data-section="fleet-reveal"]');
+  if (fleetReveal) {
+    const curtain = fleetReveal.querySelector<HTMLElement>('.fleet-reveal-curtain');
+    const image = fleetReveal.querySelector<HTMLElement>('.fleet-reveal-image');
+
+    if (curtain && image) {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: fleetReveal,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 0.9,
+          },
+        })
+        .to(curtain, { yPercent: -100, ease: 'none' }, 0)
+        .fromTo(image, { scale: 1.08 }, { scale: 1, ease: 'none' }, 0);
+    }
+  }
+
   const coverage = document.querySelector<HTMLElement>('[data-section="coverage"]');
   if (coverage) {
     gsap.from(coverage.querySelectorAll('.coverage-item'), {

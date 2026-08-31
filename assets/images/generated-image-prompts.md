@@ -121,3 +121,20 @@ Constraints: bottles must be recognizably PET and physically plausible; facility
 Avoid: colorful garbage dump, ocean-plastic cliché, pristine product bottles, readable beverage labels, greenwashing illustration, CGI look, glossy advertising render, oversaturation, orange-and-teal grading, duplicated or melted bottles, malformed hands, unsafe worker placement
 Output intent: premium final-quality provisional website asset, visually related to the existing documentary logistics photographs and suitable for subtle vertical movement tied to page scroll
 ```
+
+## 7. Banner — flota alineada
+
+```text
+Use case: photorealistic-natural
+Asset type: full-width landing page section banner
+Primary request: a realistic documentary photograph of a fleet of six modern cargo trucks aligned together in a clean logistics yard in Colombia
+Scene/backdrop: organized industrial transport yard with subtle green mountains of Antioquia in the far background, no visual clutter
+Subject: six unbranded white and deep-navy cargo trucks, a believable mix of tractor-trailers and rigid box trucks, parked in a precise diagonal formation, all vehicles fully plausible and operational with realistic tires, mirrors, headlights, seams, and lightly used working surfaces
+Style/medium: photorealistic natural commercial-documentary photography, real camera capture, authentic materials and imperfect everyday detail, not CGI
+Composition/framing: ultrawide panoramic banner, low eye-level camera, strong front three-quarter view across the aligned fleet, trucks distributed across the entire horizontal frame, no important vehicle cut off, composition safe for an object-cover crop on desktop and mobile
+Lighting/mood: soft overcast daylight, natural neutral color balance, confident and dependable, subtle atmospheric depth
+Color palette: restrained white, deep navy, asphalt gray, and natural green landscape
+Materials/textures: realistic painted metal, rubber, glass reflections, clean asphalt with subtle wear
+Constraints: no people; no logos; no brand names; no readable text; no readable license plates; no watermark; no dramatic sunset; no excessive saturation
+Avoid: CGI or 3D-render appearance, futuristic trucks, duplicated or malformed wheels, distorted cabins, showroom gloss, dirty scrapyard, busy warehouse clutter, extreme wide-angle distortion
+```
