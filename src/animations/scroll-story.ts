@@ -124,14 +124,26 @@ if (!reducedMotion) {
 
   const process = document.querySelector<HTMLElement>('[data-section="how-it-works"]');
   if (process) {
-    gsap.from(process.querySelectorAll('.process-step'), {
-      yPercent: 16,
-      opacity: 0,
-      duration: 0.65,
-      stagger: 0.14,
-      ease: 'power2.out',
+    const routeLayout = process.querySelector<HTMLElement>(
+      window.matchMedia('(min-width: 1024px)').matches ? '.route-layout-desktop' : '.route-layout-mobile'
+    );
+    const routeTimeline = gsap.timeline({
       scrollTrigger: { trigger: process, start: 'top 62%', once: true },
     });
+
+    routeLayout?.querySelectorAll<SVGPathElement>('.route-shoulder, .route-road').forEach((path) => {
+      const length = path.getTotalLength();
+      gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
+      routeTimeline.to(path, { strokeDashoffset: 0, duration: 2.6, ease: 'power2.inOut' }, 0);
+    });
+
+    routeTimeline
+      .from(routeLayout?.querySelectorAll('.route-centerline') ?? [], { opacity: 0, duration: 0.7 }, 1.9)
+      .from(
+        routeLayout?.querySelectorAll('.process-step') ?? [],
+        { scale: 0.9, opacity: 0, duration: 0.8, stagger: 0.28, ease: 'back.out(1.25)' },
+        1.8
+      );
   }
 
   const history = document.querySelector<HTMLElement>('[data-section="history"]');

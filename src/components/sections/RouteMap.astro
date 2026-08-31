@@ -1,0 +1,100 @@
+---
+import type { Step } from '../../data/steps';
+
+interface Props {
+  steps: Step[];
+}
+
+const { steps } = Astro.props;
+
+const desktopPositions = [
+  'left-[13%] top-[28%]',
+  'left-[37%] top-[72%]',
+  'left-[61%] top-[28%]',
+  'left-[87%] top-[72%]',
+];
+
+const mobilePositions = ['top-[17%]', 'top-[39%]', 'top-[61%]', 'top-[83%]'];
+---
+
+<div class="route-map relative left-1/2 mt-10 w-screen -translate-x-1/2 bg-accent lg:mt-12" aria-label="Ruta del servicio en cuatro etapas">
+  <div class="route-layout-mobile relative h-[72rem] lg:hidden">
+    <svg aria-hidden="true" viewBox="0 0 420 1200" preserveAspectRatio="none" class="absolute inset-0 h-full w-full">
+      <path
+        class="route-shoulder fill-none stroke-background/45"
+        d="M210 190 L210 1010"
+        stroke-width="355"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        class="route-road fill-none stroke-primary"
+        d="M210 190 L210 1010"
+        stroke-width="330"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        class="route-centerline fill-none stroke-accent/75"
+        d="M210 190 L210 1010"
+        stroke-width="5"
+        stroke-linecap="round"
+        stroke-dasharray="16 18"
+      />
+    </svg>
+
+    <ol class="absolute inset-0">
+      {steps.map((step, index) => (
+        <li class={`process-step absolute left-1/2 z-10 flex w-[15rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center ${mobilePositions[index]}`}>
+          <div class="w-full rounded-[2rem] border border-primary/10 bg-white px-4 py-5 shadow-lg">
+            <span class="mx-auto flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary bg-accent font-heading text-lg font-bold text-primary ring-4 ring-primary/85">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <h3 class="mt-4 font-heading text-2xl font-semibold uppercase leading-[0.92] text-primary">{step.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-secondary">{step.description}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+
+  <div class="route-layout-desktop relative hidden h-[45rem] lg:block">
+    <svg aria-hidden="true" viewBox="0 0 1440 720" preserveAspectRatio="none" class="absolute inset-0 h-full w-full">
+      <path
+        class="route-shoulder fill-none stroke-background/45"
+        d="M190 200 C360 200 350 520 530 520 S700 200 880 200 S1060 520 1250 520"
+        stroke-width="326"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        class="route-road fill-none stroke-primary"
+        d="M190 200 C360 200 350 520 530 520 S700 200 880 200 S1060 520 1250 520"
+        stroke-width="300"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        class="route-centerline fill-none stroke-accent/75"
+        d="M190 200 C360 200 350 520 530 520 S700 200 880 200 S1060 520 1250 520"
+        stroke-width="5"
+        stroke-linecap="round"
+        stroke-dasharray="18 20"
+      />
+    </svg>
+
+    <ol class="absolute inset-0">
+      {steps.map((step, index) => (
+        <li class={`process-step absolute z-10 flex w-[13rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center ${desktopPositions[index]}`}>
+          <div class="w-full rounded-[2rem] border border-primary/10 bg-white px-3 py-5 shadow-lg">
+            <span class="mx-auto flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary bg-accent font-heading text-lg font-bold text-primary ring-4 ring-primary/85">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <h3 class="mt-4 font-heading text-2xl font-semibold uppercase leading-[0.92] text-primary">{step.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-secondary">{step.description}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</div>
