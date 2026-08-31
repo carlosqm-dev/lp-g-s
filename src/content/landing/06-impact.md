@@ -1,6 +1,6 @@
 ---
 order: 6
-headline: "El reciclaje de PET no existe sin transporte"
+headline: "El reciclaje PET no existe sin transporte"
 subheadline: "Cada tonelada que movemos hace parte de un ciclo real: sin transporte confiable, el material reciclable no llega a la planta que lo transforma. Este es nuestro aporte, en cifras."
 ---
 
