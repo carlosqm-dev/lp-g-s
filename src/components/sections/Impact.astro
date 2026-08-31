@@ -11,7 +11,7 @@ const { data } = await getEntry('landing', '06-impact');
       {data.subheadline && <p class="body-copy mx-auto mt-6 max-w-[58ch] text-background/70">{data.subheadline}</p>}
     </div>
 
-    <div class="mt-8 grid gap-px overflow-hidden rounded-xl bg-background/15 lg:grid-cols-[1.2fr_0.8fr]">
+    <div class="mt-8 grid gap-px overflow-hidden rounded-xl bg-primary lg:grid-cols-[1.2fr_0.8fr]">
       <div class="impact-copy relative overflow-hidden rounded-xl bg-primary p-5 md:p-9">
         <span aria-hidden="true" class="absolute -right-10 -top-14 font-heading text-[13rem] font-bold leading-none text-background/[0.035]">PET</span>
         <p class="relative max-w-[20ch] font-heading text-[clamp(2.25rem,5.2vw,4.5rem)] font-semibold uppercase leading-[0.92] tracking-[-0.03em]">
@@ -30,16 +30,16 @@ const { data } = await getEntry('landing', '06-impact');
           height="1536"
           loading="lazy"
           decoding="async"
-          class="impact-image absolute inset-x-0 -top-[6%] h-[116%] w-full object-cover object-center"
+          class="impact-image absolute inset-x-[0px] -top-[6%] h-[116%] w-full object-cover object-center"
         />
-        <div aria-hidden="true" class="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,42,65,.88),rgba(0,42,65,.1)_58%,rgba(0,42,65,.18))]"></div>
+        <div aria-hidden="true" class="absolute inset-[0px] bg-[linear-gradient(to_top,rgba(0,42,65,.88),rgba(0,42,65,.1)_58%,rgba(0,42,65,.18))]"></div>
         <div class="absolute inset-x-5 bottom-5 flex items-end justify-between border-t border-background/20 pt-4 text-[9px] font-semibold uppercase tracking-[0.15em] text-background/50">
           <span>Material recuperado</span><span class="text-accent">Ciclo activo ↻</span>
         </div>
       </div>
     </div>
 
-    <div class="mt-px grid gap-px bg-background/15 md:grid-cols-2">
+    <div class="mt-px grid gap-px bg-primary md:grid-cols-2">
       {impactCards.map((card) => (
         <article class="impact-card relative rounded-xl bg-primary p-5 md:p-7">
           <div class="flex items-start">

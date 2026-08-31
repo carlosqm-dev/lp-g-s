@@ -5,7 +5,7 @@ export function WhatWeDoCards({ services }: { services: ServiceCard[] }) {
   const reduceMotion = useReducedMotion();
 
   return (
-    <div className="grid gap-px overflow-hidden rounded-xl border border-primary/20 bg-primary/20 md:grid-cols-3">
+    <div className="grid gap-px overflow-hidden rounded-xl border border-primary/20 bg-background md:grid-cols-3">
       {services.map((service) => (
         <motion.article
           key={service.title}
@@ -18,10 +18,10 @@ export function WhatWeDoCards({ services }: { services: ServiceCard[] }) {
             alt={service.imageAlt}
             loading="lazy"
             decoding="async"
-            className="absolute inset-0 h-full w-full object-cover opacity-80 transition duration-700 group-hover:scale-105 group-hover:opacity-95"
+            className="absolute inset-[0px] h-full w-full object-cover opacity-80 transition duration-700 group-hover:scale-105 group-hover:opacity-95"
             style={{ objectPosition: service.imagePosition }}
           />
-          <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,42,65,.12),rgba(0,42,65,.34)_48%,rgba(0,42,65,.98)_88%)]"></div>
+          <div aria-hidden="true" className="absolute inset-[0px] bg-[linear-gradient(to_bottom,rgba(0,42,65,.12),rgba(0,42,65,.34)_48%,rgba(0,42,65,.98)_88%)]"></div>
 
           <div className="relative">
             <h3 className="max-w-[13ch] font-heading text-3xl font-semibold uppercase leading-[0.95] md:text-4xl">
