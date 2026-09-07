@@ -162,7 +162,7 @@ if (!reducedMotion) {
       .from(
         routeLayout?.querySelectorAll('.process-step') ?? [],
         { scale: 0.9, opacity: 0, duration: 0.8, stagger: 0.28, ease: 'back.out(1.25)' },
-        1.8
+        2.6
       );
   }
 
