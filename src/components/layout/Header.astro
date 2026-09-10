@@ -46,11 +46,11 @@ import { navLinks } from '../../data/nav';
     <!-- Una sola version blanca de cada logo: el header es oscuro tanto
          sobre el Hero como en glass, asi que ya no hace falta el par
          blanco/negro con crossfade. -->
-    <a href="#hero" class="block h-10 w-10 justify-self-center lg:hidden" aria-label="G&S Conexiones Estratégicas — inicio">
+    <a href="#hero" class="header-mark block h-10 w-10 justify-self-center lg:hidden" aria-label="G&S Conexiones Estratégicas — inicio">
       <img src="/brand/isotipo-white.png" alt="" aria-hidden="true" class="h-full w-full object-contain" />
     </a>
 
-    <a href="#hero" class="hidden aspect-[640/312] justify-self-center lg:block lg:h-12">
+    <a href="#hero" class="header-mark hidden aspect-[640/312] justify-self-center lg:block lg:h-12">
       <img
         src="/brand/logo-horizontal-white.png"
         alt="G&S Conexiones Estratégicas"
@@ -84,8 +84,54 @@ import { navLinks } from '../../data/nav';
 </header>
 
 <style>
+  /* Sobre el Hero el header flota sin fondo propio. Si la foto de fondo es
+     clara —cielo, follaje— el logo y los enlaces blancos se pierden contra
+     ella. Este velo superior les devuelve contraste sin teñir la foto
+     entera, y se desvanece al pasar a glass, que ya aporta su propio
+     fondo. Va en ::before con z-index negativo para quedar por detras del
+     contenido del header pero dentro de su stacking context. */
+  #site-header::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: -1;
+    height: 200%;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.72),
+      rgba(0, 0, 0, 0.42) 45%,
+      transparent
+    );
+    transition: opacity 0.3s var(--ease-standard);
+  }
+
+  #site-header.is-scrolled::before {
+    opacity: 0;
+  }
+
   .header-nav a {
     color: var(--color-background);
+  }
+
+  /* El velo resuelve el grueso del contraste, pero el logo cae justo sobre
+     el follaje mas claro de la foto. Una sombra propia lo despega de
+     cualquier fondo sin depender del velo. Se retira en glass, donde el
+     fondo navy ya lo separa. */
+  #site-header .header-mark img,
+  #site-header .header-nav a,
+  #site-header .menu-toggle {
+    /* Doble sombra: una ceñida que rescata los trazos finos —el subtitulo
+       del logo es diminuto y se diluye contra el follaje— y otra difusa
+       que despega la pieza completa del fondo. */
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.85)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+    transition: filter 0.3s var(--ease-standard);
+  }
+
+  #site-header.is-scrolled .header-mark img,
+  #site-header.is-scrolled .header-nav a,
+  #site-header.is-scrolled .menu-toggle {
+    filter: none;
   }
 
   .header-nav-link::after {
