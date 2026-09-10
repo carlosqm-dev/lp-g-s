@@ -74,13 +74,6 @@ body {
   transition: transform 250ms ease-out;
 }
 
-.industrial-grid {
-  background-image:
-    linear-gradient(color-mix(in srgb, currentColor 10%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, currentColor 10%, transparent) 1px, transparent 1px);
-  background-size: 3rem 3rem;
-}
-
 .text-outline {
   color: transparent;
   -webkit-text-stroke: 1px currentColor;
