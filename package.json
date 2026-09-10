@@ -5,6 +5,7 @@
   "packageManager": "pnpm@11.22.0",
   "scripts": {
     "tokens:sync": "node scripts/generate-theme.mjs",
+    "images:webp": "node scripts/images-to-webp.mjs",
     "dev": "pnpm run tokens:sync && astro dev",
     "build": "pnpm run tokens:sync && astro build",
     "preview": "astro preview"
