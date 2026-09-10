@@ -9,7 +9,7 @@ export function WhatWeDoCards({ services }: { services: ServiceCard[] }) {
       {services.map((service) => (
         <motion.article
           key={service.title}
-          className="group relative flex min-h-[21rem] flex-col justify-end overflow-hidden rounded-xl bg-primary p-5 text-background md:min-h-[28rem] md:p-6"
+          className="group relative flex aspect-[3/4] min-h-[21rem] flex-col justify-end overflow-hidden rounded-xl bg-primary p-5 text-background md:p-6"
           whileHover={reduceMotion ? undefined : { y: -8 }}
           transition={{ duration: 0.25, ease: 'easeOut' }}
         >
@@ -21,7 +21,7 @@ export function WhatWeDoCards({ services }: { services: ServiceCard[] }) {
             className="absolute inset-[0px] h-full w-full object-cover transition duration-700 group-hover:scale-105"
             style={{ objectPosition: service.imagePosition }}
           />
-          <div aria-hidden="true" className="absolute inset-[0px] bg-[linear-gradient(to_bottom,rgba(0,0,0,.06),rgba(0,0,0,.30)_46%,rgba(0,0,0,.90)_88%)]"></div>
+          <div aria-hidden="true" className="absolute inset-[0px] bg-[linear-gradient(to_bottom,rgba(0,0,0,.02)_0%,rgba(0,0,0,.08)_40%,rgba(0,0,0,.46)_62%,rgba(0,0,0,.86)_88%)]"></div>
 
           <div className="relative">
             <h3 className="max-w-[13ch] font-heading text-3xl font-semibold uppercase leading-[0.95] md:text-4xl">
