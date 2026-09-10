@@ -4,15 +4,29 @@
   aria-label="Flota de transporte de carga"
 >
   <div class="fleet-reveal-sticky sticky top-[0px] h-dvh overflow-hidden bg-background">
-    <img
-      src="/images/fleet/flota-camiones-banner.webp"
-      alt="Flota de camiones de G&S Conexiones Estratégicas alineada junto a su equipo de conductores"
-      width="2000"
-      height="1125"
-      loading="lazy"
-      decoding="async"
-      class="fleet-reveal-image absolute inset-[0px] h-full w-full scale-100 object-cover object-center will-change-transform"
-    />
+    <!-- Art direction, no solo reescalado: el banner apaisado cubierto con
+         object-cover en un viewport vertical deja ver apenas un cuarto de
+         su ancho, asi que debajo de md entra una toma vertical de la misma
+         flota. Va en <picture> y no en dos <img> con hidden/block porque
+         display:none no evita la descarga: el navegador resuelve el media
+         antes de pedir el archivo y baja uno solo. -->
+    <picture>
+      <source
+        media="(max-width: 767px)"
+        srcset="/images/fleet/flota-camiones-banner-vertical.webp"
+        width="1200"
+        height="2132"
+      />
+      <img
+        src="/images/fleet/flota-camiones-banner.webp"
+        alt="Flota de camiones de G&S Conexiones Estratégicas alineada junto a su equipo de conductores"
+        width="2000"
+        height="1125"
+        loading="lazy"
+        decoding="async"
+        class="fleet-reveal-image absolute inset-[0px] h-full w-full scale-100 object-cover object-center will-change-transform"
+      />
+    </picture>
     <div aria-hidden="true" class="fleet-reveal-curtain absolute inset-y-[0px] -inset-x-px z-20 bg-background will-change-transform motion-reduce:hidden"></div>
   </div>
 </section>
