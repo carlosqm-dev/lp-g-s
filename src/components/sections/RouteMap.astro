@@ -43,8 +43,8 @@ const mobilePositions = ['top-[17%]', 'top-[39%]', 'top-[61%]', 'top-[83%]'];
 
     <ol class="absolute inset-0">
       {steps.map((step, index) => (
-        <li class={`process-step absolute left-1/2 z-10 flex w-[15rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center ${mobilePositions[index]}`}>
-          <div class="w-full rounded-[2rem] border border-primary/10 bg-white px-4 py-5 shadow-lg">
+        <li class={`absolute left-1/2 z-10 flex w-[15rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center ${mobilePositions[index]}`}>
+          <div class="process-step w-full rounded-[2rem] border border-primary/10 bg-white px-4 py-5 shadow-lg">
             <span class="mx-auto flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary bg-accent font-heading text-lg font-bold text-primary ring-4 ring-primary/85">
               {String(index + 1).padStart(2, '0')}
             </span>
@@ -81,8 +81,8 @@ const mobilePositions = ['top-[17%]', 'top-[39%]', 'top-[61%]', 'top-[83%]'];
 
     <ol class="absolute inset-0">
       {steps.map((step, index) => (
-        <li class={`process-step absolute z-10 flex w-[22%] max-w-[16rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center ${desktopPositions[index]}`}>
-          <div class="min-h-64 w-full rounded-[2rem] border border-primary/10 bg-white px-5 py-7 shadow-lg">
+        <li class={`absolute z-10 flex w-[22%] max-w-[16rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center ${desktopPositions[index]}`}>
+          <div class="process-step min-h-64 w-full rounded-[2rem] border border-primary/10 bg-white px-5 py-7 shadow-lg">
             <span class="mx-auto flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary bg-accent font-heading text-xl font-bold text-primary ring-4 ring-primary/85">
               {String(index + 1).padStart(2, '0')}
             </span>
