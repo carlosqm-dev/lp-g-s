@@ -5,19 +5,24 @@ import { coverageCores } from '../../data/coverage';
 import mapaCobertura from '../../assets/map/colombia-cobertura.png';
 
 const { data } = await getEntry('landing', '04-coverage');
+// El titular se parte en la coma para garantizar dos lineas exactas.
+const [headlineLead, headlineTail] = data.headline.split(', ');
 ---
-<section id="cobertura" class="gsap-section overflow-hidden bg-background py-20 md:py-24 lg:flex lg:min-h-[100svh] lg:items-center lg:py-16" data-section="coverage">
+<section id="cobertura" class="gsap-section overflow-hidden bg-background py-20 md:py-24 lg:flex lg:min-h-[calc(100svh-5.5rem)] lg:items-center lg:py-12" data-section="coverage">
   <div class="section-shell">
-    <div class="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-center lg:gap-10">
+    <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-10">
       <div>
-        <h2 class="display-title max-w-[8ch] text-6xl md:text-7xl lg:text-[clamp(4.5rem,6vw,6.5rem)]">{data.headline}</h2>
-        {data.subheadline && <p class="body-copy mt-4 max-w-[42ch] text-secondary">{data.subheadline}</p>}
+        <h2 class="display-title text-5xl md:text-6xl lg:text-[clamp(2.25rem,3.2vw,3.25rem)]">
+          <span class="block">{headlineTail ? `${headlineLead},` : headlineLead}</span>
+          {headlineTail && <span class="block">{headlineTail}</span>}
+        </h2>
+        {data.subheadline && <p class="mt-4 max-w-[42ch] text-base leading-relaxed text-secondary md:text-lg lg:text-base">{data.subheadline}</p>}
         <div class="mt-6 border-t border-primary/20">
           {coverageCores.map((core) => (
-            <div class="coverage-item border-b border-primary/20 py-4 lg:py-3.5">
+            <div class="coverage-item border-b border-primary/20 py-4 lg:py-2.5">
               <div class="text-[10px] font-semibold uppercase tracking-[0.16em] text-secondary">{core.eyebrow}</div>
-              <h3 class="mt-1 font-heading text-xl font-semibold uppercase leading-none md:text-2xl">{core.title}</h3>
-              <p class="body-copy mt-1.5 text-secondary">{core.description}</p>
+              <h3 class="mt-1 font-heading text-xl font-semibold uppercase leading-none md:text-2xl lg:text-lg">{core.title}</h3>
+              <p class="mt-1.5 text-base leading-relaxed text-secondary lg:text-sm">{core.description}</p>
             </div>
           ))}
         </div>
@@ -32,7 +37,7 @@ const { data } = await getEntry('landing', '04-coverage');
           format="webp"
           loading="lazy"
           decoding="async"
-          class="map-image h-auto w-full origin-center scale-[1.06] lg:max-h-[calc(100svh-8rem)] lg:w-auto lg:max-w-full lg:scale-100 lg:object-contain"
+          class="map-image h-auto w-full origin-center scale-[1.06] lg:max-h-[calc(100svh-16rem)] lg:w-auto lg:max-w-full lg:scale-100 lg:object-contain"
         />
       </div>
     </div>
