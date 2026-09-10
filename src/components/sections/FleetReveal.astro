@@ -27,6 +27,12 @@
         class="fleet-reveal-image absolute inset-[0px] h-full w-full scale-100 object-cover object-center will-change-transform"
       />
     </picture>
+    <!-- Mismo velo simetrico del Hero: z-10 lo deja sobre la foto y debajo
+         de la cortina (z-20), que es la que se desliza al hacer scroll. -->
+    <div
+      aria-hidden="true"
+      class="absolute inset-[0px] z-10 bg-[linear-gradient(to_bottom,rgba(0,0,0,.75)_0%,rgba(0,0,0,.42)_18%,rgba(0,0,0,.08)_38%,rgba(0,0,0,.08)_62%,rgba(0,0,0,.42)_82%,rgba(0,0,0,.75)_100%)]"
+    ></div>
     <div aria-hidden="true" class="fleet-reveal-curtain absolute inset-y-[0px] -inset-x-px z-20 bg-background will-change-transform motion-reduce:hidden"></div>
   </div>
 </section>
