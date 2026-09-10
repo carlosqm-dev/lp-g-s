@@ -18,10 +18,10 @@ export function WhatWeDoCards({ services }: { services: ServiceCard[] }) {
             alt={service.imageAlt}
             loading="lazy"
             decoding="async"
-            className="absolute inset-[0px] h-full w-full object-cover opacity-80 transition duration-700 group-hover:scale-105 group-hover:opacity-95"
+            className="absolute inset-[0px] h-full w-full object-cover transition duration-700 group-hover:scale-105"
             style={{ objectPosition: service.imagePosition }}
           />
-          <div aria-hidden="true" className="absolute inset-[0px] bg-[linear-gradient(to_bottom,rgba(0,42,65,.12),rgba(0,42,65,.34)_48%,rgba(0,42,65,.98)_88%)]"></div>
+          <div aria-hidden="true" className="absolute inset-[0px] bg-[linear-gradient(to_bottom,rgba(0,0,0,.06),rgba(0,0,0,.30)_46%,rgba(0,0,0,.90)_88%)]"></div>
 
           <div className="relative">
             <h3 className="max-w-[13ch] font-heading text-3xl font-semibold uppercase leading-[0.95] md:text-4xl">
