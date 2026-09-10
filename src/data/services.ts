@@ -16,14 +16,14 @@ export const services: ServiceCard[] = [
   },
   {
     title: 'Logística para la cadena de reciclaje',
-    description: 'Especialistas en el transporte de material PET dentro del ciclo de economía circular.',
+    description: 'Conectamos la recuperación del PET con los procesos que permiten que vuelva a la industria.',
     image: '/images/product/pacas-pet-reciclaje.webp',
     imageAlt: 'Operario de G&S cargando pacas de botellas PET en el furgón de un camión',
     imagePosition: '50% center',
   },
   {
     title: 'Cobertura flexible',
-    description: 'Base en Antioquia, con operación a nivel nacional según el requerimiento del cliente.',
+    description: 'Operamos desde Antioquia y coordinamos soluciones nacionales según las características de cada carga y proyecto.',
     image: '/images/product/cobertura-antioquia.webp',
     imageAlt: 'Camiones de la flota de G&S estacionados en una vía de Antioquia',
     imagePosition: '50% center',

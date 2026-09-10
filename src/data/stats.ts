@@ -4,7 +4,7 @@ export interface Stat {
 }
 
 export const stats: Stat[] = [
-  { value: '20+', label: 'Años de trayectoria' },
-  { value: '2.500 t', label: 'Toneladas de PET transportadas al mes' },
-  { value: '10+', label: 'Ciudades con cobertura nacional bajo demanda' },
+  { value: '37+', label: 'Años de experiencia logística' },
+  { value: '14.000 t', label: 'Toneladas de PET transportadas al año' },
+  { value: '10+', label: 'Ciudades con capacidad de operación según ruta, volumen y necesidad' },
 ];
