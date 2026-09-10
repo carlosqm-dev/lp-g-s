@@ -19,31 +19,33 @@ const [headlineLead, headlineTail] = data.headline.split(', ');
     loading="eager"
     decoding="async"
     fetchpriority="high"
-    class="absolute inset-0 -z-20 h-full w-full object-cover object-[60%_center]"
+    class="absolute inset-0 -z-20 h-full w-full object-cover object-[58%_center]"
   />
-  <div class="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(0,0,0,.82)_2%,rgba(0,0,0,.45)_42%,rgba(0,0,0,.10)_72%,transparent)]"></div>
+  <div
+    class="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(0,0,0,.82)_0%,rgba(0,0,0,.52)_30%,rgba(0,0,0,.12)_56%,transparent_72%),linear-gradient(to_right,rgba(0,0,0,.72),rgba(0,0,0,.38)_34%,rgba(0,0,0,.08)_56%,transparent_70%)]"
+  ></div>
 
   <div class="section-shell">
-    <div class="md:grid md:grid-cols-[minmax(0,1fr)_13rem] md:items-end md:gap-8 lg:grid-cols-[1.45fr_0.55fr]">
-      <h1 class="display-title max-w-[12ch] text-[clamp(3.75rem,17vw,7rem)] md:max-w-[10ch] md:text-[clamp(6rem,10vw,10rem)]">
+    <div class="max-w-[34rem] lg:max-w-[42rem]">
+      <h1 class="display-title text-[clamp(2.75rem,12vw,4rem)] md:text-[clamp(3rem,5.6vw,4.75rem)]">
         <span class="hero-reveal-item block">{headlineLead}</span>
         {headlineTail && <span class="hero-reveal-item block pl-[0.18em] text-accent md:pl-[0.42em]">{headlineTail}</span>}
       </h1>
-      <div class="hero-reveal-item mt-5 md:mb-2 md:mt-0">
-        {data.subheadline && <p class="body-copy max-w-[42ch] text-background/75">{data.subheadline}</p>}
-        <div class="mt-6 flex flex-col items-start gap-5">
+      <div class="hero-reveal-item mt-6 md:mt-8">
+        {data.subheadline && <p class="body-copy max-w-[40ch] text-background/80">{data.subheadline}</p>}
+        <div class="mt-7 flex flex-wrap items-center gap-x-7 gap-y-4">
           {data.cta_label && (
             <a
               href={contact.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              class="cta-lift inline-flex min-h-12 items-center justify-center rounded-full bg-accent px-5 text-sm font-semibold text-primary md:min-h-14 md:w-full md:px-4 lg:w-auto lg:whitespace-nowrap lg:px-7"
+              class="cta-lift inline-flex min-h-12 items-center justify-center rounded-full bg-accent px-6 text-sm font-semibold text-primary md:min-h-14 md:px-8"
             >
               {data.cta_label}
             </a>
           )}
-          <a href="#que-hacemos" class="hidden items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-background/60 md:flex">
-            Explora la operación <span class="flex h-10 w-10 items-center justify-center rounded-full border border-background/25">↓</span>
+          <a href="#que-hacemos" class="hidden items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-background/70 md:flex">
+            Explora la operación <span class="flex h-10 w-10 items-center justify-center rounded-full border border-background/30">↓</span>
           </a>
         </div>
       </div>
