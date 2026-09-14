@@ -1,35 +1,39 @@
 export interface ImpactCard {
-  tag: string;
-  tagVariant: 'confirmed' | 'estimated';
-  number: string;
+  value: string;
+  unit?: string;
   label: string;
-  method: string;
 }
 
+// Estadísticas globales sobre contaminación plástica.
+// Fuentes: IUCN Marine Plastic Pollution (2021) y UNEP From Pollution
+// to Solution (2021).
 export const impactCards: ImpactCard[] = [
   {
-    tag: 'Dato confirmado',
-    tagVariant: 'confirmed',
-    number: '2.500 t',
-    label: 'De PET movilizadas hacia reciclaje cada mes',
-    method: 'Cómo se calcula: volumen mensual reportado por el cliente actual.',
+    value: '14 millones',
+    unit: 'de toneladas',
+    label: 'De plástico llegan al océano cada año.',
   },
   {
-    tag: 'Estimado',
-    tagVariant: 'estimated',
-    number: '~100 M',
-    label: 'De botellas equivalentes desviadas de relleno sanitario',
-    method: 'Cómo se calcula: toneladas de PET × factor de conversión peso→unidades (supuesto: ~25 g por botella). Confirmar con dato real antes de publicar.',
+    value: '85%',
+    label: 'De la basura marina está compuesta por plásticos.',
+  },
+  {
+    value: '23–37 millones',
+    unit: 'de toneladas',
+    label: 'Podrían llegar al océano cada año para 2040.',
   },
 ];
 
-// La cifra destacada se parte en fragmentos para poder resaltar los dos
-// valores clave (accent1/accent2) sin meter markup dentro del dato.
+// La pregunta se parte en fragmentos para resaltar palabras clave sin
+// introducir markup dentro de los datos.
 export const impactHighlight = {
-  before: '¿Sabías que ',
-  accent1: '2.500 toneladas',
-  middle: ' de PET al mes equivalen aproximadamente a ',
-  accent2: '100 millones de botellas',
-  after: ' desviadas de un relleno sanitario?',
-  note: 'estimado — confirmar peso promedio por botella',
+  before: '¿Sabías que detrás de cada ',
+  accent1: 'material',
+  middle1: ' que vuelve a ',
+  accent2: 'circular',
+  middle2: ', existe una cadena que debe mantenerse en ',
+  accent3: 'movimiento',
+  after: '?',
+  description:
+    'Detrás de cada tonelada hay algo más que carga: hay materiales que pueden reintegrarse, procesos que pueden continuar y recursos que tienen una nueva oportunidad.',
 };

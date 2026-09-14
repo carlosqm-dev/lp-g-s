@@ -3,23 +3,27 @@ import { getEntry } from 'astro:content';
 import { impactCards, impactHighlight } from '../../data/impact';
 
 const { data } = await getEntry('landing', '06-impact');
+const subheadlineLines = data.subheadline?.split('\n');
 ---
 <section id="impacto" class="gsap-section overflow-hidden bg-primary py-20 text-background md:py-32" data-section="impact">
   <div class="section-shell">
-    <div class="border-b border-background/20 pb-9 text-center">
-      <h2 class="display-title mx-auto max-w-[16ch] text-6xl text-background md:text-8xl lg:text-[6.75rem]">{data.headline}</h2>
-      {data.subheadline && <p class="body-copy mx-auto mt-6 max-w-[58ch] text-background/70">{data.subheadline}</p>}
+    <div class="relative left-1/2 w-[calc(100vw-2rem)] max-w-[100rem] -translate-x-1/2 border-b border-background/20 pb-9 text-center md:w-[calc(100vw-5rem)]">
+      <h2 class="display-title mx-auto max-w-[19ch] text-6xl text-background md:text-8xl lg:text-[6.75rem]">{data.headline}</h2>
+      {subheadlineLines && (
+        <p class="mx-auto mt-6 text-[clamp(0.95rem,1.55vw,1.25rem)] leading-relaxed text-background/70">
+          {subheadlineLines.map((line) => <span class="block">{line}</span>)}
+        </p>
+      )}
     </div>
 
     <div class="mt-8 grid gap-px overflow-hidden rounded-xl bg-primary lg:grid-cols-[1.2fr_0.8fr]">
       <div class="impact-copy relative overflow-hidden rounded-xl bg-primary p-5 md:p-9">
-        <span aria-hidden="true" class="absolute -right-10 -top-14 font-heading text-[13rem] font-bold leading-none text-background/[0.035]">PET</span>
         <p class="relative max-w-[20ch] font-heading text-[clamp(2.25rem,5.2vw,4.5rem)] font-semibold uppercase leading-[0.92] tracking-[-0.03em]">
-          {impactHighlight.before}<span class="text-accent">{impactHighlight.accent1}</span>{impactHighlight.middle}<span class="text-accent">{impactHighlight.accent2}</span>{impactHighlight.after}
+          {impactHighlight.before}<span class="text-accent">{impactHighlight.accent1}</span>{impactHighlight.middle1}<span class="text-accent">{impactHighlight.accent2}</span>{impactHighlight.middle2}<span class="text-accent">{impactHighlight.accent3}</span>{impactHighlight.after}
         </p>
-        <span class="relative mt-7 inline-flex border border-accent/60 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.12em] text-accent">
-          {impactHighlight.note}
-        </span>
+        <p class="relative mt-7 max-w-[52ch] text-base leading-relaxed text-primary-foreground md:text-lg">
+          {impactHighlight.description}
+        </p>
       </div>
 
       <div class="impact-visual relative min-h-[23rem] overflow-hidden rounded-xl bg-primary md:min-h-[32rem]">
@@ -39,17 +43,18 @@ const { data } = await getEntry('landing', '06-impact');
       </div>
     </div>
 
-    <div class="mt-px grid gap-px bg-primary md:grid-cols-2">
+    <div class="mt-12 grid gap-8 bg-primary md:mt-16 lg:grid-cols-3 lg:gap-6">
       {impactCards.map((card) => (
-        <article class="impact-card relative rounded-xl bg-primary p-5 md:p-7">
-          <div class="flex items-start">
-            <span class={`border px-2 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] ${card.tagVariant === 'confirmed' ? 'border-accent bg-accent text-primary' : 'border-accent/60 text-accent'}`}>{card.tag}</span>
-          </div>
-          <div class="mt-10 font-heading text-6xl font-bold leading-none text-background md:text-7xl">{card.number}</div>
-          <div class="body-copy mt-3 max-w-[28ch] text-background/70">{card.label}</div>
-          <div class="mt-8 border-t border-background/20 pt-3 text-[10px] leading-relaxed text-background/45">{card.method}</div>
+        <article class="impact-card relative flex flex-col items-center px-5 py-10 text-center md:px-7 md:py-12">
+          <div class="whitespace-nowrap font-heading text-[clamp(2.5rem,3.8vw,3.5rem)] font-bold leading-none tracking-[-0.035em] text-background">{card.value}</div>
+          <div class="mt-1 min-h-5 font-heading text-xl font-semibold uppercase leading-none text-accent">{card.unit}</div>
+          <div class="mt-5 max-w-[25ch] text-base leading-relaxed text-background/70 md:text-lg">{card.label}</div>
         </article>
       ))}
     </div>
+
+    <blockquote class="mx-auto mt-12 max-w-none text-center font-heading text-[clamp(1.75rem,3.3vw,3.25rem)] font-semibold uppercase leading-[0.92] tracking-[-0.03em] text-background md:mt-16 lg:whitespace-nowrap">
+      <span aria-hidden="true" class="text-primary-foreground">“</span>Cada tonelada que vuelve al ciclo cuenta<span aria-hidden="true" class="text-primary-foreground">”</span>
+    </blockquote>
   </div>
 </section>
