@@ -4,8 +4,20 @@ export interface Step {
 }
 
 export const steps: Step[] = [
-  { title: 'Nos escribes por WhatsApp', description: 'Nos cuentas qué necesitas transportar.' },
-  { title: 'Cotizamos tu carga', description: 'Respuesta ágil, sin vueltas.' },
-  { title: 'Coordinamos la recolección', description: 'Definimos fecha y punto de recogida.' },
-  { title: 'Entregamos a tiempo', description: 'Con el seguimiento que tu operación necesita.' },
+  {
+    title: 'Entendemos tu necesidad',
+    description: 'Conocemos la carga, el origen, el destino y las condiciones de la operación.',
+  },
+  {
+    title: 'Diseñamos la ruta',
+    description: 'Definimos la alternativa más adecuada según volumen, tiempos y requerimientos.',
+  },
+  {
+    title: 'Coordinamos el proceso',
+    description: 'Organizamos la operación para que cada parte de la cadena esté conectada.',
+  },
+  {
+    title: 'Hacemos que suceda',
+    description: 'Movemos la carga y acompañamos el proceso hasta su destino.',
+  },
 ];

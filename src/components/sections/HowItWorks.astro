@@ -8,20 +8,21 @@ const { data } = await getEntry('landing', '07-how-it-works');
 ---
 <section class="gsap-section bg-accent py-20 text-primary md:py-32" data-section="how-it-works">
   <div class="section-shell">
-    <div class="grid gap-6 border-b border-primary/25 pb-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-10 lg:pb-6">
-      <div>
-        <h2 class="display-title max-w-[9ch] text-6xl md:text-8xl lg:max-w-none lg:whitespace-nowrap">{data.headline}</h2>
-      </div>
+    <div class="border-b border-primary/25 pb-8 text-center lg:pb-6">
+      <h2 class="display-title mx-auto max-w-[9ch] text-6xl md:text-8xl lg:max-w-none lg:whitespace-nowrap">{data.headline}</h2>
+    </div>
+
+    <RouteMap steps={steps} />
+
+    <div class="mt-8 flex justify-center">
       <a
         href={contact.whatsappHref}
         target="_blank"
         rel="noopener noreferrer"
-        class="cta-lift inline-flex min-h-12 w-fit items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-background lg:shrink-0"
+        class="cta-lift inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-7 text-sm font-semibold text-primary-foreground"
       >
-        Empieza por WhatsApp
+        Contáctanos
       </a>
     </div>
-
-    <RouteMap steps={steps} />
   </div>
 </section>
