@@ -1,41 +1,32 @@
-// `icon` es una clave, no un componente: los datos se quedan libres de
-// React para que este archivo siga siendo editable por cualquiera. El
-// mapa clave -> icono vive en AttributesCarousel.tsx.
-export type AttributeIcon = 'puntualidad' | 'flexibilidad' | 'eficiencia' | 'reputacion' | 'precio';
-
 export interface Attribute {
-  icon: AttributeIcon;
   title: string;
   description: string;
 }
 
-// Atributos de marca. Las descripciones son resumenes de una linea: el
-// carrusel se lee de un vistazo, no es el lugar para el texto largo del
-// documento de marca.
 export const attributes: Attribute[] = [
   {
-    icon: 'puntualidad',
-    title: 'Puntualidad',
-    description: 'Entregas a tiempo para que tu operación no se detenga.',
+    title: 'Comunicación que conecta',
+    description:
+      'Mantenemos una comunicación cercana y constante para anticiparnos a las necesidades de cada operación y responder con oportunidad.',
   },
   {
-    icon: 'flexibilidad',
-    title: 'Flexibilidad',
-    description: 'Ajustamos rutas, horarios y tipo de carga a tu necesidad.',
+    title: 'Tiempo bajo control',
+    description:
+      'Seguimos cada operación y su comportamiento en ruta mediante GPS, porque conocer lo que ocurre nos permite tomar decisiones a tiempo.',
   },
   {
-    icon: 'eficiencia',
-    title: 'Eficiencia',
-    description: 'Rutas y tiempos optimizados: menos costo, menos huella.',
+    title: 'Velocidad orientada',
+    description:
+      'Entendemos el flujo de inventarios y las prioridades comerciales para adaptar la operación al ritmo real de cada negocio.',
   },
   {
-    icon: 'reputacion',
-    title: 'Reputación y confiabilidad',
-    description: 'Más de 20 años y la recomendación de nuestros clientes.',
+    title: 'Mejoramos mientras avanzamos',
+    description:
+      'Articulamos nuestros procesos bajo una cultura de mejoramiento continuo, buscando que cada operación sea más eficiente que la anterior.',
   },
   {
-    icon: 'precio',
-    title: 'Relación calidad-precio',
-    description: 'Tarifas competitivas sin bajar el estándar del servicio.',
+    title: 'Capacidad que se adapta',
+    description:
+      'Ajustamos nuestra capacidad operativa ante picos de demanda previamente identificados, manteniendo la flexibilidad sin perder el control de la operación.',
   },
 ];
